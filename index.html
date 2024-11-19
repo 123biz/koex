@@ -189,6 +189,16 @@
         }
     }
     </style>
+    <script type="module">
+        import Typebot from 'https://cdn.jsdelivr.net/npm/@typebot.io/js@0.3/dist/web.js'
+        Typebot.initBubble({
+            typebot: "basic-chat-gpt",
+            theme: {
+                button: { backgroundColor: "#0042DA" },
+                chatWindow: { backgroundColor: "#fff" },
+            },
+        });
+    </script>
 </head>
 
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">

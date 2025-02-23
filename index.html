@@ -2,13 +2,12 @@
 <html lang="en">
 <head>
     <!-- Theme Made By www.w3schools.com -->
-    <title>Koex Marketing</title>
+    <title>KOEX Marketing</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <style>
@@ -29,35 +28,36 @@
         color: #303030;
         font-weight: 400;
         margin-bottom: 30px;
+    }  
+    .jumbotron {
+        background-color: #f4511e;
+        color: #fff;
+        padding: 100px 25px;
+        font-family: Montserrat, sans-serif;
     }
-    
-    .container-fluid:nth-of-type(odd) {
-        background-color: #ffffff;
-    }
-
-    .container-fluid:nth-of-type(even) {
-        background-color: #f6f6f6;
-    }
-
     .container-fluid {
         padding: 60px 50px;
     }
-
     .bg-grey {
         background-color: #f6f6f6;
     }
     .logo-small {
         color: #f4511e;
-        font-size: 80px;
+        font-size: 50px;
     }
     .logo {
         color: #f4511e;
-        font-size: 150px;
+        font-size: 200px;
     }
-    .fa-check {
-        color: blue; /* 체크 표시 색상 변경 */
-        margin-right: 10px; /* 텍스트와의 간격 조절 */
-        font-size: 25px; /* 원하는 크기로 조절 */
+    .thumbnail {
+        padding: 0 0 15px 0;
+        border: none;
+        border-radius: 0;
+    }
+    .thumbnail img {
+        width: 100%;
+        height: 100%;
+        margin-bottom: 10px;
     }
     .carousel-control.right, .carousel-control.left {
         background-image: none;
@@ -81,18 +81,9 @@
     }
     .panel {
         border: 1px solid #f4511e; 
-        border-radius: 0px !important;
+        border-radius:0 !important;
         transition: box-shadow 0.5s;
-        width: 450px;
-        margin: 0 auto;
     }
-    /* 미디어 쿼리를 사용하여 화면 크기에 따라 너비 변경 */
-    @media (max-width: 768px) {
-        .panel {
-            width: 100%; /* 작은 화면에서는 전체 너비 사용 */
-        }
-    }
-
     .panel:hover {
         box-shadow: 5px 0px 40px rgba(0,0,0, .2);
     }
@@ -111,44 +102,6 @@
         border-bottom-left-radius: 0px;
         border-bottom-right-radius: 0px;
     }
-
-    .left-align {
-        text-align: left; /* 좌측 정렬 */
-        padding-left: 25px;
-    }
-    .panel-body p{
-        font-size: 18px;
-        color: black;
-    }
-    .about-content {
-        display: flex; /* Flexbox 컨테이너로 설정 */
-        align-items: center; /* 세로 가운데 정렬 */
-    }
-    .logo-container {
-        display: flex; /* Flexbox 컨테이너로 설정 */
-        justify-content: center; /* 가로 가운데 정렬 */
-        align-items: center; /* 세로 가운데 정렬 (선택 사항) */
-    }
-    #contact {
-        padding-left: 30px;
-        padding-right: 30px;
-    }
-    .download-button {
-        margin-left: auto; /* 오른쪽 정렬 */
-        font-style: bold;
-        font-size: 14px;
-    }
-    .social a{
-        font-size: 5rem;
-        margin-right: 1rem;
-    }
-    iframe {
-        width: 100%;
-        height: auto;
-        border: none;
-    }
-
-
     .panel-footer {
         background-color: white !important;
     }
@@ -187,14 +140,9 @@
         color: #fff !important;
     }
     footer .glyphicon {
-        font-size: 15px;
+        font-size: 20px;
         margin-bottom: 20px;
         color: #f4511e;
-    }
-    .section {
-        height: 100px;
-        padding: 40px 20px;
-        text-align: center;
     }
     .slideanim {visibility:hidden;}
     .slide {
@@ -251,47 +199,151 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>                        
         </button>
-        <a class="navbar-brand" href="#myPage">KOEX</a>
+        <a class="navbar-brand" href="#myPage"><strong>KOEX</strong></a>
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="#problem">PROBLEM</a></li>
             <li><a href="#about">ABOUT</a></li>
             <li><a href="#services">SERVICES</a></li>
+            <li><a href="#portfolio">PORTFOLIO</a></li>
             <li><a href="#pricing">PRICING</a></li>
-            <li class="download-button">
-                <a href="/path/to/your/company_introduction.pdf" download="회사소개서.pdf">회사소개서</a>
-            </li>
+            <li><a href="#contact">CONTACT</a></li>
         </ul>
         </div>
     </div>
     </nav>
-    <br><br><br>
 
-    <div id="problem" class="container-fluid">
-    <h2 style="font-size: 2em; color: red" class="text-center">왜 나만 사업이 안될까?...</h2>
+    <div class="jumbotron text-center">
+    <h1 style="font-size: 3em;"><strong>Koex Marketing</strong></h1> 
+    <p style="color: black; font-size: 1.5em;"><strong>AI & Data Marketing Company</strong></p> 
+    <form class="form-inline">
+        <div class="input-group">
+        <input type="email" class="form-control" size="50" placeholder="Email Address" required>
+        <div class="input-group-btn">
+            <button type="button" class="btn btn-danger">Subscribe</button>
+        </div>
+        </div>
+    </form>
+    </div>
+
+    <!-- Container (About Section) -->
+    <div id="about" class="container-fluid">
+    <div class="row">
+        <div class="col-sm-8">
+        <h2>About Koex Marketing</h2><br>
+        <h4>KOEX Marketing Company는 성공을 위한 종합마케팅 솔루션을 제공합니다. 인공지능과 데이터 기반 전략수립부터 브랜드 성장, 디지털 광고, 콘텐츠 마케팅까지 맞춤형 마케팅 전략을 제공합니다. 고객의 비즈니스 목표에 맞춰 최적의 마케팅 플랜을 설계하고 실행하여 성과를 극대화합니다. KOEX Marketing과 함께 효과적인 마케팅 전략으로 브랜드 가치를 높이고, 지속적인 성장을 이끌어보세요!</h4><br>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <br><button class="btn btn-default btn-lg">Get in Touch</button>
+        </div>
+        <div class="col-sm-4">
+        <span class="glyphicon glyphicon-signal logo"></span>
+        </div>
+    </div>
+    </div>
+
+    <div class="container-fluid bg-grey">
+    <div class="row">
+        <div class="col-sm-4">
+        <span class="glyphicon glyphicon-globe logo slideanim"></span>
+        </div>
+        <div class="col-sm-8">
+        <h2>Our Values</h2><br>
+        <h4><strong>MISSION:</strong> Our mission lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</h4><br>
+        <p><strong>VISION:</strong> Our vision Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+    </div>
+    </div>
+
+    <!-- Container (Services Section) -->
+    <div id="services" class="container-fluid text-center">
+    <h2>SERVICES</h2>
+    <h4>What we offer</h4>
+    <br>
+    <div class="row slideanim">
+        <div class="col-sm-4">
+        <span class="glyphicon glyphicon-off logo-small"></span>
+        <h4>POWER</h4>
+        <p>Lorem ipsum dolor sit amet..</p>
+        </div>
+        <div class="col-sm-4">
+        <span class="glyphicon glyphicon-heart logo-small"></span>
+        <h4>LOVE</h4>
+        <p>Lorem ipsum dolor sit amet..</p>
+        </div>
+        <div class="col-sm-4">
+        <span class="glyphicon glyphicon-lock logo-small"></span>
+        <h4>JOB DONE</h4>
+        <p>Lorem ipsum dolor sit amet..</p>
+        </div>
+    </div>
+    <br><br>
+    <div class="row slideanim">
+        <div class="col-sm-4">
+        <span class="glyphicon glyphicon-leaf logo-small"></span>
+        <h4>GREEN</h4>
+        <p>Lorem ipsum dolor sit amet..</p>
+        </div>
+        <div class="col-sm-4">
+        <span class="glyphicon glyphicon-certificate logo-small"></span>
+        <h4>CERTIFIED</h4>
+        <p>Lorem ipsum dolor sit amet..</p>
+        </div>
+        <div class="col-sm-4">
+        <span class="glyphicon glyphicon-wrench logo-small"></span>
+        <h4 style="color:#303030;">HARD WORK</h4>
+        <p>Lorem ipsum dolor sit amet..</p>
+        </div>
+    </div>
+    </div>
+
+    <!-- Container (Portfolio Section) -->
+    <div id="portfolio" class="container-fluid text-center bg-grey">
+    <h2>Portfolio</h2><br>
+    <h4>What we have built </h4>
+    <div class="row text-center slideanim">
+        <div class="col-sm-4">
+        <div class="thumbnail">
+            <img src="startup.jpg" alt="Paris" width="400" height="300">
+            <p><strong>Startup</strong></p>
+            <p>Yes, we have been helping and nurturing startups.</p>
+        </div>
+        </div>
+        <div class="col-sm-4">
+        <div class="thumbnail">
+            <img src="strategy.png" alt="New York" width="400" height="300">
+            <p><strong>Strategy</strong></p>
+            <p>Yes, we have been planning and establishing the company's strategy.</p>
+        </div>
+        </div>
+        <div class="col-sm-4">
+        <div class="thumbnail">
+            <img src="hierarchy.jpg" alt="San Francisco" width="400" height="300">
+            <p><strong>Organizational innovation</strong></p>
+            <p>Yes, we have been building and innovating organizations.</p>
+        </div>
+        </div>
+    </div><br>
+    
+    <h2>What our customers say</h2>
     <div id="myCarousel" class="carousel slide text-center" data-ride="carousel">
         <!-- Indicators -->
         <ol class="carousel-indicators">
         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
         <li data-target="#myCarousel" data-slide-to="1"></li>
         <li data-target="#myCarousel" data-slide-to="2"></li>
-        <li data-target="#myCarousel" data-slide-to="3"></li>
         </ol>
 
         <!-- Wrapper for slides -->
         <div class="carousel-inner" role="listbox">
         <div class="item active">
-            <h4>"내가 장사를 할 줄 모르는걸까?... 다른 집은 잘 되는 것 같은데..."<br><br><strong>지금부터라도 빨리 마케팅을 시작해서 개선해야 합니다!!!</strong></h4>
+            <h4>"This company is the best. I am so happy with the result!"<br><span>Michael Roe, Vice President, Comment Box</span></h4>
         </div>
         <div class="item">
-            <h4>"기술 개발과 제품 생산에는 자신이 있는데... 파는 방법을 모르겠다..."<br><br><strong>마케팅 전략이 없는 생산은 재고만 계속 늘릴 뿐입니다!!!</strong></h4>
+            <h4>"One word... WOW!!"<br><span>John Doe, Salesman, Rep Inc</span></h4>
         </div>
         <div class="item">
-            <h4>"마케팅이나 판촉, 홍보... 내가 직접 잘 할 수 있을 것 같은데..."<br><br><strong>전문가의 도움을 받아서 마케팅 효과를 높이도록 권합니다!!!</strong></h4>
-        </div>
-        <div class="item">
-            <h4>"수확을 해야 되는데... 어떻게 하면 좋은 가격으로 팔 수 있을까..."<br><br><strong>전문가와 함께 효과적인 마케팅 전략을 수립하고 전개하세요!!!</strong></h4>
+            <h4>"Could I... BE any more happy with this company?"<br><span>Chandler Bing, Actor, FriendsAlot</span></h4>
         </div>
         </div>
 
@@ -307,215 +359,110 @@
     </div>
     </div>
 
-    <!-- Container (About Section) -->
-    <div id="about" class="container-fluid">
-    <div class="row about-content">
-        <div class="col-sm-8">
-            <h2 style="font-size: 2em; color: grey">Koex Marketing</h2><br>
-            <h4><strong>"성공을 위한 종합적 마케팅 솔루션을 제공합니다."</strong></h4>
-                 <p>우리는 AI와 데이터를 기반으로 한 전략 수립부터 브랜드 성장, 디지털 광고, 콘텐츠 마케팅까지 고객의 비즈니스 목표에 맞춰 최적의 마케팅 플랜을 설계하고 실행하여 성과를 극대화합니다. KOEX Marketing과 함께 효과적인 마케팅 전략으로 브랜드 가치를 높이고, 지속적인 성장을 이끌어보세요!</p><br>
-        </div>
-        <div class="col-sm-4 logo-container">
-            <span class="glyphicon glyphicon-signal logo"></span>
-        </div>
-    </div>
-    </div>
-
-    <div class="container-fluid">
-    <div class="row about-content">
-        <div class="col-sm-4 logo-container">
-            <span class="glyphicon glyphicon-globe logo slideanim"></span>
-        </div>
-        <div class="col-sm-8">
-        <h2 style="font-size: 2em; color: grey">Our Values</h2><br>
-        <h4><strong>MISSION: "혁신적인 마케팅 전략으로 귀사의 성장을 이끌기 위해 존재합니다."</strong></h4>
-            <p>우리는 데이터 기반의 분석과 창의적인 전략을 결합하여, 고객사의 브랜드 가치를 극대화하고 고객의 목표를 달성하기 위해 최적의 마케팅 솔루션을 제공하며, 빠르게 변화하는 시장에서도 차별화된 경쟁력을 갖출 수 있도록 돕습니다.</p><br>
-        <h4><strong>VISION: "대한민국을 선도하는 종합마케팅 솔루션 기업이 될 것입니다."</strong></h4>
-            <p>우리는 최신 기술과 트렌드를 반영한 데이터 중심 마케팅, 창의적인 브랜드 전략, 그리고 효과적인 광고 솔루션을 통해 고객들에게 최고의 성과를 제공하는 신뢰받는 파트너가 되는 것을 목표로 합니다.</p>
-        </div>
-    </div>
-    </div>
-
-    <!-- Container (Services Section) -->
-    <div id="services" class="container-fluid text-center">
-    <div class="social">
-        <a href="#"><i class="fa-brands fa-google"></i></a>
-        <a href="#"><i class="fa-brands fa-youtube"></i></a>
-        <a href="#"><i class="fa-brands fa-instagram"></i></a>
-        <a href="#"><i class="fa-brands fa-facebook"></i></a>
-        <a href="#"><i class="fa-brands fa-linux"></i></a>    
-    </div>
-    <h2 style="font-size: 2em; color: grey">텍스트 마이닝을 통한 효과적 마케팅</h2><br>
-    
-    <br>
-    <div class="row slideanim">
-        <div class="col-sm-4">
-        <span class="glyphicon glyphicon-export logo-small"></span>
-        <h4>경영/마케팅전략 수립</h4>
-        <p>단기, 중기, 장기 경영/마케팅전략을 수립합니다.</p><br>
-        </div>
-        <div class="col-sm-4">
-        <span class="glyphicon glyphicon-list logo-small"></span>
-        <h4>블로그 마케팅</h4>
-        <p>연관 키워드와 상위 블로그를 분석합니다.</p><br>
-        </div>
-        <div class="col-sm-4">
-        <span class="glyphicon glyphicon-globe logo-small"></span>
-        <h4>웹사이트 구축 및 운영</h4>
-        <p>각종 웹사이트를 구축하고 운영합니다.</p>
-        </div>
-    </div>
-    <br><br>
-    <div class="row slideanim">
-        <div class="col-sm-4">
-        <span class="glyphicon glyphicon-screenshot logo-small"></span>
-        <h4>AI & 데이터 분석</h4>
-        <p>머신러닝, 딥러닝, 텍스트마이닝을 합니다.</p><br>
-        </div>
-        <div class="col-sm-4">
-        <span class="glyphicon glyphicon-facetime-video logo-small"></span>
-        <h4>동영상 제작</h4>
-        <p>각종 동영상 제작 서비스를 제공합니다.</p><br>
-        </div>
-        <div class="col-sm-4">
-        <span class="glyphicon glyphicon-user logo-small"></span>
-        <h4 style="color:#303030;">챗봇 구축</h4>
-        <p>각종 챗봇을 구축하고 운영합니다.</p>
-        </div>
-    </div><hr><br>
-    <div class="row slideanim">
-    <img src="sns.png" alt="SNS 관련 이미지" width="400" height="240">
-    <div class="item">
-         <h4>"귀사를 위한 모든 마케팅 관리가 가능합니다."</h4>
-    </div>
-    </div>
-    </div>
-    
     <!-- Container (Pricing Section) -->
     <div id="pricing" class="container-fluid">
     <div class="text-center">
-        <h2 style="font-size: 2em; color: grey">귀사에 딱 맞는 요금제를 선택하세요!</h2><br>
+        <h2>Pricing</h2>
+        <h4>Choose a payment plan that works for you</h4>
     </div>
     <div class="row slideanim">
         <div class="col-sm-4 col-xs-12">
-            <div class="panel panel-default text-center">
-                <div class="panel-heading">
-                <h1>Basic</h1><hr>
-                <h3>블로그 마케팅 서비스 제공</h3>
-                </div>
-                <div class="panel-body left-align">
-                    <p style="color:grey;"><i class="fas fa-check" style="color:grey;"></i>블로그 홈페이지 제작(제외)</p>
-                    <p><strong><i class="fas fa-check"></i>매월 15건 포스팅</strong></p>
-                    <p><strong><i class="fas fa-check"></i>매 1,000자 이상 포스팅</strong></p>
-                    <p><strong><i class="fas fa-check"></i>매 포스팅 3장 이상 이미지 삽입</strong></p>
-                    <p><strong><i class="fas fa-check"></i>서로이웃 100명</strong></p><hr>
-    
-                    <p style="color:grey;"><i class="fas fa-check" style="color:grey;"></i>홈페이지 제작(제외)</p>
-                    <p style="color:grey;"><i class="fas fa-check" style="color:grey;"></i>홈페이지 호스팅 및 유지보수(제외)</p>
-                    <p style="color:grey;"><i class="fas fa-check" style="color:grey;"></i>랜딩페이지 제작 및 호스팅(제외)</p><hr>
-
-                    <p style="color:grey;"><i class="fas fa-check" style="color:grey;"></i>챗봇 구축 및 임베딩(제외)</p>
-                    <p style="color:grey;"><i class="fas fa-check" style="color:grey;"></i>챗봇 호스팅 서비스 및 유지보수(제외)</p><hr>
-    
-                    <p style="color:grey;"><i class="fas fa-check" style="color:grey;"></i>매주 쇼츠 동영상 제작 배포(제외)</p>
-                    <p style="color:grey;"><i class="fas fa-check" style="color:grey;"></i>매월 유튜브 동영상 제작 배포(제외)</p><hr>
-
-                    <p style="color:grey;"><i class="fas fa-check" style="color:grey;"></i>머신러닝, 딥러닝 분석(제외)</p>
-                    <p><strong><i class="fas fa-check"></i>텍스트 마이닝 자료 제공</strong></p>
-                      
-                </div>
-                <div class="panel-footer">
-                <h3>600,000원</h3>
-                <h4>매월, VAT 별도</h4>
-                </div>
-            </div>      
-            </div>    
-            <div class="col-sm-4 col-xs-12">
-                <div class="panel panel-default text-center">
-                    <div class="panel-heading">
-                    <h1>Standard</h1><hr>
-                    <h3>일반적 마케팅 서비스 제공</h3>
-                    </div>
-                    <div class="panel-body left-align">
-                        <p><strong><i class="fas fa-check"></i>블로그 홈페이지 제작</strong></p>
-                        <p><strong><i class="fas fa-check"></i>매월 20건 포스팅</strong></p>
-                        <p><strong><i class="fas fa-check"></i>매 1,500자 이상 포스팅</strong></p>
-                        <p><strong><i class="fas fa-check"></i>매 포스팅 5장 이상 이미지 삽입</strong></p>
-                        <p><strong><i class="fas fa-check"></i>서로이웃 200명</strong></p><hr>
-        
-                        <p><strong><i class="fas fa-check"></i>홈페이지 제작</strong></p>
-                        <p><strong><i class="fas fa-check"></i>홈페이지 호스팅 및 유지보수</strong></p>
-                        <p style="color:grey;"><i class="fas fa-check" style="color:grey;"></i>랜딩페이지 제작 및 호스팅(제외)</p><hr>
-
-                        <p><strong><i class="fas fa-check"></i>챗봇 구축 및 임베딩</strong></p>
-                        <p><strong><i class="fas fa-check"></i>챗봇 호스팅 서비스 및 유지보수</strong></p><hr>
-        
-                        
-                        <p style="color:grey;"><i class="fas fa-check" style="color:grey;"></i>매주 쇼츠 동영상 제작 배포(제외)</p>
-                        <p style="color:grey;"><i class="fas fa-check" style="color:grey;"></i>매월 유튜브 동영상 제작 배포(제외)</p><hr>
-
-                        <p style="color:grey;"><i class="fas fa-check" style="color:grey;"></i>머신러닝, 딥러닝 분석(제외)</p>
-                        <p><strong><i class="fas fa-check"></i>텍스트 마이닝 자료 제공</strong></p>
-        
-
-                    </div>
-                    <div class="panel-footer">
-                    <h3>1,500,000원</h3>
-                    <h4>매월, VAT 별도</h4>
-                    </div>
-                </div>      
-                </div>       
+        <div class="panel panel-default text-center">
+            <div class="panel-heading">
+            <h1>Basic</h1>
+            </div>
+            <div class="panel-body">
+            <p><strong>20</strong> Lorem</p>
+            <p><strong>15</strong> Ipsum</p>
+            <p><strong>5</strong> Dolor</p>
+            <p><strong>2</strong> Sit</p>
+            <p><strong>Endless</strong> Amet</p>
+            </div>
+            <div class="panel-footer">
+            <h3>$19</h3>
+            <h4>per month</h4>
+            <button class="btn btn-lg">Sign Up</button>
+            </div>
+        </div>      
+        </div>     
         <div class="col-sm-4 col-xs-12">
         <div class="panel panel-default text-center">
             <div class="panel-heading">
-            <h1>Premium</h1><hr>
-            <h3>종합적 마케팅 서비스 제공</h3>
+            <h1>Pro</h1>
             </div>
-            <div class="panel-body left-align">
-                <p><strong><i class="fas fa-check"></i>블로그 홈페이지 제작</strong></p>
-                <p><strong><i class="fas fa-check"></i>매월 30건 포스팅</strong></p>
-                <p><strong><i class="fas fa-check"></i>매 2,000자 이상 포스팅</strong></p>
-                <p><strong><i class="fas fa-check"></i>매 포스팅 10장 이상 이미지 삽입</strong></p>
-                <p><strong><i class="fas fa-check"></i>서로이웃 300명</strong></p><hr>
-
-                <p><strong><i class="fas fa-check"></i>홈페이지 제작</strong></p>
-                <p><strong><i class="fas fa-check"></i>홈페이지 호스팅 및 유지보수</strong></p>
-                <p><strong><i class="fas fa-check"></i>랜딩페이지 제작 및 호스팅</strong></p><hr>
-
-                <p><strong><i class="fas fa-check"></i>챗봇 구축 및 임베딩</strong></p>
-                <p><strong><i class="fas fa-check"></i>챗봇 호스팅 서비스 및 유지보수</strong></p><hr>
-
-                <p><strong><i class="fas fa-check"></i>매주 쇼츠 동영상 제작 배포</strong></p>
-                <p><strong><i class="fas fa-check"></i>매월 유튜브 동영상 제작 배포</strong></p><hr>
-                
-                <p><strong><i class="fas fa-check"></i>머신러닝, 딥러닝 분석</strong></p>
-                <p><strong><i class="fas fa-check"></i>텍스트 마이닝 자료 제공</strong></p>
-
+            <div class="panel-body">
+            <p><strong>50</strong> Lorem</p>
+            <p><strong>25</strong> Ipsum</p>
+            <p><strong>10</strong> Dolor</p>
+            <p><strong>5</strong> Sit</p>
+            <p><strong>Endless</strong> Amet</p>
             </div>
             <div class="panel-footer">
-            <h3>3,000,000원</h3>
-            <h4>매월, VAT 별도</h4>
+            <h3>$29</h3>
+            <h4>per month</h4>
+            <button class="btn btn-lg">Sign Up</button>
+            </div>
+        </div>      
+        </div>       
+        <div class="col-sm-4 col-xs-12">
+        <div class="panel panel-default text-center">
+            <div class="panel-heading">
+            <h1>Premium</h1>
+            </div>
+            <div class="panel-body">
+            <p><strong>100</strong> Lorem</p>
+            <p><strong>50</strong> Ipsum</p>
+            <p><strong>25</strong> Dolor</p>
+            <p><strong>10</strong> Sit</p>
+            <p><strong>Endless</strong> Amet</p>
+            </div>
+            <div class="panel-footer">
+            <h3>$49</h3>
+            <h4>per month</h4>
+            <button class="btn btn-lg">Sign Up</button>
             </div>
         </div>      
         </div>    
     </div>
     </div>
-    <div class="row slideanim">
-        <div class="left-align"><br>
-            <h2>사무실 위치</h2>
-            <p>서울 영등포구 국제금융로6길 33</p>
-            <iframe src="https://maps.google.com/maps?q=서울 영등포구 국제금융로6길 33&output=embed" style="width:100%; height:300px; border:none;">
-            </iframe>
+
+    <!-- Container (Contact Section) -->
+    <div id="contact" class="container-fluid bg-grey">
+    <h2 class="text-center">CONTACT</h2>
+    <div class="row">
+        <div class="col-sm-5">
+        <p>Contact us and we'll get back to you within 24 hours.</p>
+        <p><span class="glyphicon glyphicon-map-marker"></span> Seoul, Korea</p>
+        <p><span class="glyphicon glyphicon-phone"></span> +82 10-3366-9010</p>
+        <p><span class="glyphicon glyphicon-envelope"></span> topmind@koex.kr</p>
         </div>
-        <br>
+        <div class="col-sm-7 slideanim">
+        <div class="row">
+            <div class="col-sm-6 form-group">
+            <input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
+            </div>
+            <div class="col-sm-6 form-group">
+            <input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+            </div>
+        </div>
+        <textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea><br>
+        <div class="row">
+            <div class="col-sm-12 form-group">
+            <button class="btn btn-default pull-right" type="submit">Send</button>
+            </div>
+        </div>
+        </div>
     </div>
+    </div>
+
+    <!-- Image of location/map -->
+    <img src="image.png" class="w3-image w3-greyscale-min" style="width:100%">
 
     <footer class="container-fluid text-center">
     <a href="#myPage" title="To Top">
         <span class="glyphicon glyphicon-chevron-up"></span>
     </a>
-    <p>© 2024  Koex Marketing Corporation.  All rights reserved.</p>
-    <p>코엑스마케팅(주) 대표이사 홍용기 <span class="glyphicon glyphicon-phone-alt"></span> +82 2-3366-9010</p>
+    <p>© 2024 KOEX Consulting Networks. All rights reserved.</p>
     </footer>
 
     <script>

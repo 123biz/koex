@@ -56,12 +56,19 @@
     }
     .logo {
         color: #f4511e;
-        font-size: 250px;
+        font-size: 200px;
     }
     .fa-check {
-        color: blue; /* 체크 표시 색상 변경 */
+        color: #17a2b8; /* 체크 표시 색상 변경 */
         margin-right: 10px; /* 텍스트와의 간격 조절 */
         font-size: 25px; /* 원하는 크기로 조절 */
+    }
+    .text-uncheck .fa-check {
+        color: white; /* 체크 표시 색상 변경 */
+    }
+    .text-uncheck {
+        color: grey; /* 체크 표시 색상 변경 */
+        text-decoration: line-through;
     }
     .carousel-control.right, .carousel-control.left {
         background-image: none;
@@ -89,6 +96,7 @@
         transition: box-shadow 0.5s;
         width: 450px;
         margin: 0 auto;
+        line-height: 1.2;
     }
     /* 미디어 쿼리를 사용하여 화면 크기에 따라 너비 변경 */
     @media (max-width: 768px) {
@@ -98,7 +106,7 @@
     }
 
     .panel:hover {
-        box-shadow: 5px 0px 40px rgba(0,0,0, .2);
+        box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.308);
     }
     .panel-footer .btn:hover {
         border: 1px solid #f4511e;
@@ -143,11 +151,10 @@
     }
     iframe {
         width: 100%;
-        height: auto;
+        height: 500px;
         border: none;
     }
-    /* style.css */
-    /* Services Section - SNS 이미지 스타일 */
+
     .sns-image {
         width: 100%;
         max-width: 500px;
@@ -244,6 +251,10 @@
             font-size: 3rem; /* 작은 화면에서 아이콘 크기 */
             margin-right: 0.5rem; /* 간격도 줄여줌 */
         }
+        .text-small {
+            font-size: 1em;
+            color: black;
+        }
     }
     @media screen and (max-width: 480px) {
         .logo {
@@ -271,7 +282,7 @@
             <li><a href="#services">SERVICES</a></li>
             <li><a href="#pricing">PRICING</a></li>
             <li class="download-button">
-                <a href="company_introduction.pdf" download="회사소개서.pdf">회사소개서</a>
+                <a href="/path/to/your/company_introduction.pdf" download="회사소개서.pdf">회사소개서</a>
             </li>
         </ul>
         </div>
@@ -299,7 +310,7 @@
             <h4>"기술 개발과 제품 생산에는 자신이 있는데... 파는 방법을 모르겠다..."<br><br><strong>마케팅 전략이 없는 생산은 재고만 계속 늘릴 뿐입니다!!!</strong></h4>
         </div>
         <div class="item">
-            <h4>"마케팅이나 판촉, 홍보... 내가 직접 잘 할 수 있을 것 같은데..."<br><br><strong>전문가의 도움을 받아서 마케팅 효과를 높이도록 권합니다!!!</strong></h4>
+            <h4>"마케팅이나 판촉, 홍보... 내가 직접 할 수 있을 것 같은데..."<br><br><strong>전문가의 도움을 받아서 마케팅 효과를 높이도록 권합니다!!!</strong></h4>
         </div>
         <div class="item">
             <h4>"수확을 해야 되는데... 어떻게 하면 좋은 가격으로 팔 수 있을까..."<br><br><strong>전문가와 함께 효과적인 마케팅 전략을 수립하고 전개하세요!!!</strong></h4>
@@ -323,8 +334,8 @@
     <div class="row about-content">
         <div class="col-sm-8">
             <h2 style="font-size: 2em; color: grey">Koex Marketing</h2><br>
-            <h4><strong>"성공을 위한 종합적 마케팅 솔루션을 제공합니다."</strong></h4>
-                 <p>우리는 AI와 데이터를 기반으로 한 전략 수립부터 브랜드 성장, 디지털 광고, 콘텐츠 마케팅까지 고객의 비즈니스 목표에 맞춰 최적의 마케팅 플랜을 설계하고 실행하여 성과를 극대화합니다. KOEX Marketing과 함께 효과적인 마케팅 전략으로 브랜드 가치를 높이고, 지속적인 성장을 이끌어보세요!</p><br>
+            <h4><strong>"우리는 성공을 위한 종합적 마케팅 솔루션을 제공합니다."</strong></h4>
+                 <h4>AI와 데이터를 기반으로 한 전략 수립부터 브랜드 성장, 디지털 광고, 콘텐츠 마케팅까지 고객의 비즈니스 목표에 맞춰 최적의 마케팅 서비스를 실행하여 성과를 극대화합니다. KOEX Marketing과 함께 효과적인 마케팅 전략으로 브랜드 가치를 높이고, 지속적인 성장을 이끌어보세요!</h4><br>
         </div>
         <div class="col-sm-4 logo-container">
             <span class="glyphicon glyphicon-signal logo"></span>
@@ -339,10 +350,10 @@
         </div>
         <div class="col-sm-8">
         <h2 style="font-size: 2em; color: grey">Our Values</h2><br>
-        <h4><strong>MISSION: "혁신적인 마케팅 전략으로 귀사의 성장을 이끌기 위해 존재합니다."</strong></h4>
-            <p>우리는 데이터 기반의 분석과 창의적인 전략을 결합하여, 고객사의 브랜드 가치를 극대화하고 고객의 목표를 달성하기 위해 최적의 마케팅 솔루션을 제공하며, 빠르게 변화하는 시장에서도 차별화된 경쟁력을 갖출 수 있도록 돕습니다.</p><br>
-        <h4><strong>VISION: "대한민국을 선도하는 종합마케팅 솔루션 기업이 될 것입니다."</strong></h4>
-            <p>우리는 최신 기술과 트렌드를 반영한 데이터 중심 마케팅, 창의적인 브랜드 전략, 그리고 효과적인 광고 솔루션을 통해 고객들에게 최고의 성과를 제공하는 신뢰받는 파트너가 되는 것을 목표로 합니다.</p>
+        <h4><strong>MISSION: "우리는 혁신적인 마케팅 전략으로 귀사의 성장을 이끌기 위해 존재합니다."</strong></h4>
+            <h4>데이터 기반의 분석과 창의적인 전략을 결합하여, 고객사의 브랜드 가치를 극대화하고 고객의 목표를 달성하기 위해 최적의 마케팅 솔루션을 제공하며, 빠르게 변화하는 시장에서도 차별화된 경쟁력을 갖출 수 있도록 돕습니다.</h4><br>
+        <h4><strong>VISION: "우리는 대한민국을 선도하는 종합마케팅 솔루션 기업입니다."</strong></h4>
+            <h4>최신 기술과 트렌드를 반영한 데이터 중심 마케팅, 창의적인 브랜드 전략, 그리고 효과적인 광고 솔루션을 통해 고객들에게 최고의 성과를 제공하는 신뢰받는 파트너가 되는 것을 목표로 합니다.</h4>
         </div>
     </div>
     </div>
@@ -356,7 +367,7 @@
         <a href="#"><i class="fa-brands fa-facebook"></i></a>
         <a href="#"><i class="fa-brands fa-linux"></i></a>    
     </div>
-    <h2 style="font-size: 2em; color: grey">텍스트 마이닝을 통한 효과적 마케팅</h2><br>
+    <h2 class="text-small" style="font-size: 2em; color: grey">텍스트 마이닝을 통한 효과적 마케팅</h2><br>
     
     <br>
     <div class="row slideanim">
@@ -405,9 +416,77 @@
     <!-- Container (Pricing Section) -->
     <div id="pricing" class="container-fluid">
     <div class="text-center">
-        <h2 style="font-size: 2em; color: grey">귀사에 딱 맞는 요금제를 선택하세요!</h2><br>
+        <h2 class="text-small" style="font-size: 2em; color: grey">귀사에 딱 맞는 요금제를 선택하세요!</h2><br>
     </div>
     <div class="row slideanim">
+        <div class="col-sm-4 col-xs-12">
+            <div class="panel panel-default text-center">
+                <div class="panel-heading">
+                <h1>Premium</h1><hr>
+                <h3>종합적 마케팅 서비스 제공</h3>
+                </div>
+                <div class="panel-body left-align">
+                    <p><strong><i class="fas fa-check"></i>블로그 홈페이지 제작</strong></p>
+                    <p><strong><i class="fas fa-check"></i>매월 30건 포스팅</strong></p>
+                    <p><strong><i class="fas fa-check"></i>매 2,000자 이상 포스팅</strong></p>
+                    <p><strong><i class="fas fa-check"></i>매 포스팅 10장 이상 이미지 삽입</strong></p>
+                    <p><strong><i class="fas fa-check"></i>서로이웃 300명</strong></p><hr>
+
+                    <p><strong><i class="fas fa-check"></i>홈페이지 제작</strong></p>
+                    <p><strong><i class="fas fa-check"></i>홈페이지 호스팅 및 유지보수</strong></p>
+                    <p><strong><i class="fas fa-check"></i>랜딩페이지 제작 및 호스팅</strong></p><hr>
+
+                    <p><strong><i class="fas fa-check"></i>챗봇 구축 및 임베딩</strong></p>
+                    <p><strong><i class="fas fa-check"></i>챗봇 호스팅 서비스 및 유지보수</strong></p><hr>
+
+                    <p><strong><i class="fas fa-check"></i>매주 쇼츠 동영상 제작 배포</strong></p>
+                    <p><strong><i class="fas fa-check"></i>매월 유튜브 동영상 제작 배포</strong></p><hr>
+                    
+                    <p><strong><i class="fas fa-check"></i>머신러닝, 딥러닝 분석</strong></p>
+                    <p><strong><i class="fas fa-check"></i>텍스트 마이닝 자료 제공</strong></p>
+
+                </div>
+                <div class="panel-footer">
+                <h3 style="color:#17a2b8">3,000,000원</h3>
+                <h4>매월, VAT 별도</h4>
+                </div>
+            </div>      
+        </div>
+           
+        <div class="col-sm-4 col-xs-12">
+            <div class="panel panel-default text-center">
+                <div class="panel-heading">
+                <h1>Standard</h1><hr>
+                <h3>일반적 마케팅 서비스 제공</h3>
+                </div>
+                <div class="panel-body left-align">
+                    <p><strong><i class="fas fa-check"></i>블로그 홈페이지 제작</strong></p>
+                    <p><strong><i class="fas fa-check"></i>매월 20건 포스팅</strong></p>
+                    <p><strong><i class="fas fa-check"></i>매 1,500자 이상 포스팅</strong></p>
+                    <p><strong><i class="fas fa-check"></i>매 포스팅 5장 이상 이미지 삽입</strong></p>
+                    <p><strong><i class="fas fa-check"></i>서로이웃 200명</strong></p><hr>
+    
+                    <p><strong><i class="fas fa-check"></i>홈페이지 제작</strong></p>
+                    <p><strong><i class="fas fa-check"></i>홈페이지 호스팅 및 유지보수</strong></p>
+                    <p class="text-uncheck"><i class="fas fa-check"></i>랜딩페이지 제작 및 호스팅</p><hr>
+
+                    <p><strong><i class="fas fa-check"></i>챗봇 구축 및 임베딩</strong></p>
+                    <p><strong><i class="fas fa-check"></i>챗봇 호스팅 서비스 및 유지보수</strong></p><hr>
+    
+                    <p class="text-uncheck"><i class="fas fa-check"></i>매주 쇼츠 동영상 제작 배포</p>
+                    <p class="text-uncheck"><i class="fas fa-check"></i>매월 유튜브 동영상 제작 배포</p><hr>
+
+                    <p class="text-uncheck"><i class="fas fa-check"></i>머신러닝, 딥러닝 분석</p>
+                    <p><strong><i class="fas fa-check"></i>텍스트 마이닝 자료 제공</strong></p>
+
+                </div>
+                <div class="panel-footer">
+                <h3 style="color:#17a2b8">1,500,000원</h3>
+                <h4>매월, VAT 별도</h4>
+                </div>
+            </div>      
+        </div>
+        
         <div class="col-sm-4 col-xs-12">
             <div class="panel panel-default text-center">
                 <div class="panel-heading">
@@ -415,107 +494,40 @@
                 <h3>블로그 마케팅 서비스 제공</h3>
                 </div>
                 <div class="panel-body left-align">
-                    <p style="color:grey;"><i class="fas fa-check" style="color:grey;"></i>블로그 홈페이지 제작(제외)</p>
+                    <p class="text-uncheck"><i class="fas fa-check"></i>블로그 홈페이지 제작</p>
                     <p><strong><i class="fas fa-check"></i>매월 15건 포스팅</strong></p>
                     <p><strong><i class="fas fa-check"></i>매 1,000자 이상 포스팅</strong></p>
                     <p><strong><i class="fas fa-check"></i>매 포스팅 3장 이상 이미지 삽입</strong></p>
                     <p><strong><i class="fas fa-check"></i>서로이웃 100명</strong></p><hr>
     
-                    <p style="color:grey;"><i class="fas fa-check" style="color:grey;"></i>홈페이지 제작(제외)</p>
-                    <p style="color:grey;"><i class="fas fa-check" style="color:grey;"></i>홈페이지 호스팅 및 유지보수(제외)</p>
-                    <p style="color:grey;"><i class="fas fa-check" style="color:grey;"></i>랜딩페이지 제작 및 호스팅(제외)</p><hr>
+                    <p class="text-uncheck"><i class="fas fa-check"></i>홈페이지 제작</p>
+                    <p class="text-uncheck"><i class="fas fa-check"></i>홈페이지 호스팅 및 유지보수</p>
+                    <p class="text-uncheck"><i class="fas fa-check"></i>랜딩페이지 제작 및 호스팅</p><hr>
 
-                    <p style="color:grey;"><i class="fas fa-check" style="color:grey;"></i>챗봇 구축 및 임베딩(제외)</p>
-                    <p style="color:grey;"><i class="fas fa-check" style="color:grey;"></i>챗봇 호스팅 서비스 및 유지보수(제외)</p><hr>
+                    <p class="text-uncheck"><i class="fas fa-check"></i>챗봇 구축 및 임베딩</p>
+                    <p class="text-uncheck"><i class="fas fa-check"></i>챗봇 호스팅 서비스 및 유지보수</p><hr>
     
-                    <p style="color:grey;"><i class="fas fa-check" style="color:grey;"></i>매주 쇼츠 동영상 제작 배포(제외)</p>
-                    <p style="color:grey;"><i class="fas fa-check" style="color:grey;"></i>매월 유튜브 동영상 제작 배포(제외)</p><hr>
+                    <p class="text-uncheck"><i class="fas fa-check"></i>매주 쇼츠 동영상 제작 배포</p>
+                    <p class="text-uncheck"><i class="fas fa-check"></i>매월 유튜브 동영상 제작 배포</p><hr>
 
-                    <p style="color:grey;"><i class="fas fa-check" style="color:grey;"></i>머신러닝, 딥러닝 분석(제외)</p>
+                    <p class="text-uncheck"><i class="fas fa-check"></i>머신러닝, 딥러닝 분석</p>
                     <p><strong><i class="fas fa-check"></i>텍스트 마이닝 자료 제공</strong></p>
                       
                 </div>
                 <div class="panel-footer">
-                <h3>600,000원</h3>
+                <h3 style="color:#17a2b8">600,000원</h3>
                 <h4>매월, VAT 별도</h4>
                 </div>
             </div>      
-            </div>    
-            <div class="col-sm-4 col-xs-12">
-                <div class="panel panel-default text-center">
-                    <div class="panel-heading">
-                    <h1>Standard</h1><hr>
-                    <h3>일반적 마케팅 서비스 제공</h3>
-                    </div>
-                    <div class="panel-body left-align">
-                        <p><strong><i class="fas fa-check"></i>블로그 홈페이지 제작</strong></p>
-                        <p><strong><i class="fas fa-check"></i>매월 20건 포스팅</strong></p>
-                        <p><strong><i class="fas fa-check"></i>매 1,500자 이상 포스팅</strong></p>
-                        <p><strong><i class="fas fa-check"></i>매 포스팅 5장 이상 이미지 삽입</strong></p>
-                        <p><strong><i class="fas fa-check"></i>서로이웃 200명</strong></p><hr>
-        
-                        <p><strong><i class="fas fa-check"></i>홈페이지 제작</strong></p>
-                        <p><strong><i class="fas fa-check"></i>홈페이지 호스팅 및 유지보수</strong></p>
-                        <p style="color:grey;"><i class="fas fa-check" style="color:grey;"></i>랜딩페이지 제작 및 호스팅(제외)</p><hr>
-
-                        <p><strong><i class="fas fa-check"></i>챗봇 구축 및 임베딩</strong></p>
-                        <p><strong><i class="fas fa-check"></i>챗봇 호스팅 서비스 및 유지보수</strong></p><hr>
-        
-                        
-                        <p style="color:grey;"><i class="fas fa-check" style="color:grey;"></i>매주 쇼츠 동영상 제작 배포(제외)</p>
-                        <p style="color:grey;"><i class="fas fa-check" style="color:grey;"></i>매월 유튜브 동영상 제작 배포(제외)</p><hr>
-
-                        <p style="color:grey;"><i class="fas fa-check" style="color:grey;"></i>머신러닝, 딥러닝 분석(제외)</p>
-                        <p><strong><i class="fas fa-check"></i>텍스트 마이닝 자료 제공</strong></p>
-        
-
-                    </div>
-                    <div class="panel-footer">
-                    <h3>1,500,000원</h3>
-                    <h4>매월, VAT 별도</h4>
-                    </div>
-                </div>      
-                </div>       
-        <div class="col-sm-4 col-xs-12">
-        <div class="panel panel-default text-center">
-            <div class="panel-heading">
-            <h1>Premium</h1><hr>
-            <h3>종합적 마케팅 서비스 제공</h3>
-            </div>
-            <div class="panel-body left-align">
-                <p><strong><i class="fas fa-check"></i>블로그 홈페이지 제작</strong></p>
-                <p><strong><i class="fas fa-check"></i>매월 30건 포스팅</strong></p>
-                <p><strong><i class="fas fa-check"></i>매 2,000자 이상 포스팅</strong></p>
-                <p><strong><i class="fas fa-check"></i>매 포스팅 10장 이상 이미지 삽입</strong></p>
-                <p><strong><i class="fas fa-check"></i>서로이웃 300명</strong></p><hr>
-
-                <p><strong><i class="fas fa-check"></i>홈페이지 제작</strong></p>
-                <p><strong><i class="fas fa-check"></i>홈페이지 호스팅 및 유지보수</strong></p>
-                <p><strong><i class="fas fa-check"></i>랜딩페이지 제작 및 호스팅</strong></p><hr>
-
-                <p><strong><i class="fas fa-check"></i>챗봇 구축 및 임베딩</strong></p>
-                <p><strong><i class="fas fa-check"></i>챗봇 호스팅 서비스 및 유지보수</strong></p><hr>
-
-                <p><strong><i class="fas fa-check"></i>매주 쇼츠 동영상 제작 배포</strong></p>
-                <p><strong><i class="fas fa-check"></i>매월 유튜브 동영상 제작 배포</strong></p><hr>
-                
-                <p><strong><i class="fas fa-check"></i>머신러닝, 딥러닝 분석</strong></p>
-                <p><strong><i class="fas fa-check"></i>텍스트 마이닝 자료 제공</strong></p>
-
-            </div>
-            <div class="panel-footer">
-            <h3>3,000,000원</h3>
-            <h4>매월, VAT 별도</h4>
-            </div>
-        </div>      
-        </div>    
+        </div> 
+            
     </div>
     </div>
     <div class="row slideanim">
         <div class="left-align"><br>
             <h2>사무실 위치</h2>
             <p>서울 영등포구 국제금융로6길 33</p>
-            <iframe src="https://maps.google.com/maps?q=서울 영등포구 국제금융로6길 33&output=embed" style="width:100%; height:300px; border:none;">
+            <iframe src="https://maps.google.com/maps?q=서울 영등포구 국제금융로6길 33&output=embed">
             </iframe>
         </div>
         <br>
@@ -565,6 +577,5 @@
     });
     })
     </script>
-
 </body>
 </html>

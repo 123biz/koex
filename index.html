@@ -8,6 +8,7 @@
     <meta name="description" content="KOEX Marketing은 AI와 데이터 기반 마케팅 솔루션을 제공합니다.">
     <meta name="keywords" content="마케팅, AI, 데이터, KOEX, 컨설팅">
     <meta name="author" content="KOEX Marketing">
+    <link rel="stylesheet" href="reset.css">   <!-- CSS Reset 파일 -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
@@ -131,16 +132,12 @@
         justify-content: center; /* 가로 가운데 정렬 */
         align-items: center; /* 세로 가운데 정렬 (선택 사항) */
     }
-    #contact {
-        padding-left: 30px;
-        padding-right: 30px;
-    }
     .download-button {
         margin-left: auto; /* 오른쪽 정렬 */
         font-style: bold;
         font-size: 14px;
     }
-    .social a{
+    .social a {
         font-size: 5rem;
         margin-right: 1rem;
     }
@@ -242,6 +239,10 @@
         .btn-lg {
         width: 100%;
         margin-bottom: 35px;
+        }
+        .social a {
+            font-size: 3rem; /* 작은 화면에서 아이콘 크기 */
+            margin-right: 0.5rem; /* 간격도 줄여줌 */
         }
     }
     @media screen and (max-width: 480px) {

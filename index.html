@@ -1,577 +1,1177 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
-    <!-- Theme Made By www.w3schools.com -->
-    <title>Koex Marketing</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="KOEX Marketing은 AI와 데이터 기반 마케팅 솔루션을 제공합니다.">
-    <meta name="keywords" content="마케팅, AI, 데이터, KOEX, 컨설팅">
-    <meta name="author" content="KOEX Marketing">
-    <link rel="stylesheet" href="reset.css">   <!-- CSS Reset 파일 -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KOEX Marketing</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>
     <style>
-    body {
-        font: 400 15px Lato, sans-serif;
-        line-height: 1.8;
-        color: #818181;
-    }
-    h2 {
-        font-size: 24px;
-        color: #303030;
-        font-weight: 600;
-        margin-bottom: 30px;
-    }
-    h4 {
-        font-size: 19px;
-        line-height: 1.375em;
-        color: #303030;
-        font-weight: 400;
-        margin-bottom: 30px;
-    }
-    
-    .container-fluid:nth-of-type(odd) {
-        background-color: #ffffff;
-    }
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
 
-    .container-fluid:nth-of-type(even) {
-        background-color: #f6f6f6;
-    }
+        html {
+            scroll-behavior: smooth;
+        }
 
-    .container-fluid {
-        padding: 60px 50px;
-    }
+        /* --- Scroll Margin for Fixed Header --- */
+        #company,
+        #services,
+        #portfolio,
+        #faq,
+        #contact {
+            scroll-margin-top: 2rem; /* Adjust this value based on your header height */
+        }
 
-    .bg-grey {
-        background-color: #f6f6f6;
-    }
-    .logo-small {
-        color: #f4511e;
-        font-size: 80px;
-    }
-    .logo {
-        color: #f4511e;
-        font-size: 200px;
-    }
-    .fa-check {
-        color: #17a2b8; /* 체크 표시 색상 변경 */
-        margin-right: 10px; /* 텍스트와의 간격 조절 */
-        font-size: 25px; /* 원하는 크기로 조절 */
-    }
-    .text-uncheck .fa-check {
-        color: white; /* 체크 표시 색상 변경 */
-    }
-    .text-uncheck {
-        color: grey; /* 체크 표시 색상 변경 */
-        text-decoration: line-through;
-    }
-    .carousel-control.right, .carousel-control.left {
-        background-image: none;
-        color: #f4511e;
-    }
-    .carousel-indicators li {
-        border-color: #f4511e;
-    }
-    .carousel-indicators li.active {
-        background-color: #f4511e;
-    }
-    .item h4 {
-        font-size: 19px;
-        line-height: 1.375em;
-        font-weight: 400;
-        font-style: italic;
-        margin: 70px 0;
-    }
-    .item span {
-        font-style: normal;
-    }
-    .panel {
-        border: 1px solid #f4511e; 
-        border-radius: 0px !important;
-        transition: box-shadow 0.5s;
-        width: 450px;
-        margin: 0 auto;
-        line-height: 1.2;
-    }
-    /* 미디어 쿼리를 사용하여 화면 크기에 따라 너비 변경 */
-    @media (max-width: 768px) {
-        .panel {
-            width: 100%; /* 작은 화면에서는 전체 너비 사용 */
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            color: #333;
         }
-    }
 
-    .panel:hover {
-        box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.308);
-    }
-    .panel-footer .btn:hover {
-        border: 1px solid #f4511e;
-        background-color: #fff !important;
-        color: #f4511e;
-    }
-    .panel-heading {
-        color: #fff !important;
-        background-color: #f4511e !important;
-        padding: 25px;
-        border-bottom: 1px solid transparent;
-        border-top-left-radius: 0px;
-        border-top-right-radius: 0px;
-        border-bottom-left-radius: 0px;
-        border-bottom-right-radius: 0px;
-    }
+        .blue-section {
+            background-color: #0a3886;
+            color: white;
+        }
 
-    .left-align {
-        text-align: left; /* 좌측 정렬 */
-        padding-left: 25px;
-    }
-    .panel-body p{
-        font-size: 18px;
-        color: black;
-    }
-    .about-content {
-        align-items: center; /* 세로 가운데 정렬 */
-    }
-    .logo-container {
-        display: flex; /* Flexbox 컨테이너로 설정 */
-        justify-content: center; /* 가로 가운데 정렬 */
-        align-items: center; /* 세로 가운데 정렬 (선택 사항) */
-    }
-    .download-button {
-        margin-left: auto; /* 오른쪽 정렬 */
-        font-style: bold;
-        font-size: 14px;
-    }
-    .social a {
-        font-size: 5rem;
-        margin-right: 1rem;
-    }
-    iframe {
-        width: 100%;
-        height: 400px;
-        border: none;
-    }
+        .service-card {
+            transition: all 0.3s ease;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            height: 100%;
+        }
 
-    .sns-image {
-        width: 100%;
-        max-width: 500px;
-        height: auto;
-        display: block;
-        margin: 0 auto;
-    }
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
 
-    .panel-footer {
-        background-color: white !important;
-    }
-    .panel-footer h3 {
-        font-size: 32px;
-    }
-    .panel-footer h4 {
-        color: #aaa;
-        font-size: 14px;
-    }
-    .panel-footer .btn {
-        margin: 15px 0;
-        background-color: #f4511e;
-        color: #fff;
-    }
-    .navbar {
-        margin-bottom: 0;
-        background-color: #f4511e;
-        z-index: 9999;
-        border: 0;
-        font-size: 12px !important;
-        line-height: 1.42857143 !important;
-        letter-spacing: 4px;
-        border-radius: 0;
-        font-family: Montserrat, sans-serif;
-    }
-    .navbar li a, .navbar .navbar-brand {
-        color: #fff !important;
-    }
-    .navbar-nav li a:hover, .navbar-nav li.active a {
-        color: #f4511e !important;
-        background-color: #fff !important;
-    }
-    .navbar-default .navbar-toggle {
-        border-color: transparent;
-        color: #fff !important;
-    }
-    footer .glyphicon {
-        font-size: 15px;
-        margin-bottom: 20px;
-        color: #f4511e;
-    }
-    .section {
-        height: 100px;
-        padding: 40px 20px;
-        text-align: center;
-    }
-    .slideanim {visibility:hidden;}
-    .slide {
-        animation-name: slide;
-        -webkit-animation-name: slide;
-        animation-duration: 1s;
-        -webkit-animation-duration: 1s;
-        visibility: visible;
-    }
-    @keyframes slide {
-        0% {
-        opacity: 0;
-        transform: translateY(70%);
-        } 
-        100% {
-        opacity: 1;
-        transform: translateY(0%);
+        .service-icon {
+            background-color: #f1f5ff;
+            border-radius: 100%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            color: #0a3886;
         }
-    }
-    @-webkit-keyframes slide {
-        0% {
-        opacity: 0;
-        -webkit-transform: translateY(70%);
-        } 
-        100% {
-        opacity: 1;
-        -webkit-transform: translateY(0%);
+
+        .progress-bar {
+            height: 8px;
+            border-radius: 4px;
+            background-color: #e1e8f0;
+            margin: 8px 0;
         }
-    }
-    @media screen and (max-width: 768px) {
-        .col-sm-4 {
-        text-align: center;
-        margin: 25px 0;
+
+        .progress-value {
+            height: 100%;
+            border-radius: 4px;
+            background-color: #0a3886;
         }
-        .btn-lg {
-        width: 100%;
-        margin-bottom: 35px;
+
+        .case-card {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            margin-bottom: 2rem;
         }
-        .social a {
-            font-size: 3rem; /* 작은 화면에서 아이콘 크기 */
-            margin-right: 0.5rem; /* 간격도 줄여줌 */
+
+        .case-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
         }
-    }
-    @media screen and (max-width: 480px) {
-        .logo {
-        font-size: 150px;
+
+        .tab-button {
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
         }
-    }
+
+        .tab-button.active {
+            background-color: #0a3886;
+            color: white;
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .success-metric {
+            text-align: center;
+            padding: 1.5rem;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .success-metric:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-bottom: 1rem;
+        }
+
+        .contact-button {
+            background-color: #0a3886;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .contact-button:hover {
+            background-color: #072a64;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: white;
+            color: #0a3886;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .cta-button:hover {
+            background-color: #f8f9fa;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
     </style>
 </head>
+<body class="bg-gray-50">
+    <!-- 헤더 (sticky, top-0, z-50 클래스 추가) -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+            <a href="#" class="text-blue-800 font-bold text-3xl">KOEX Marketing</a>
+            <nav>
+                <ul class="flex space-x-6">
+                    <li><a href="#company" class="text-gray-600 hover:text-blue-800">회사소개</a></li>
+                    <li><a href="#services" class="text-gray-600 hover:text-blue-800">서비스</a></li>
+                    <li><a href="#portfolio" class="text-gray-600 hover:text-blue-800">성공사례</a></li>
+                    <li><a href="#faq" class="text-gray-600 hover:text-blue-800">FAQ</a></li>
+                    <li><a href="#contact" class="text-gray-600 hover:text-blue-800">문의하기</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
-    <nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container">
-        <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>                        
-        </button>
-        <a class="navbar-brand" href="#myPage">KOEX</a>
-        </div>
-        <div class="collapse navbar-collapse" id="myNavbar">
-        <ul class="nav navbar-nav navbar-right">
-            <li><a href="#problem">PROBLEM</a></li>
-            <li><a href="#about">ABOUT</a></li>
-            <li><a href="#services">SERVICES</a></li>
-            <li><a href="#pricing">PRICING</a></li>
-            <li class="download-button">
-                <a href="/path/to/your/company_introduction.pdf" download="회사소개서.pdf">회사소개서</a>
-            </li>
-        </ul>
-        </div>
-    </div>
-    </nav>
-    <br><br><br>
-
-    <div id="problem" class="container-fluid">
-    <h2 style="font-size: 2em; color: red" class="text-center">왜 나만 사업이 안 될까?...</h2>
-    <div id="myCarousel" class="carousel slide text-center" data-ride="carousel">
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
-        <li data-target="#myCarousel" data-slide-to="3"></li>
-        </ol>
-
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner" role="listbox">
-        <div class="item active">
-            <h4>"내가 장사를 할 줄 모르는걸까?... 다른 집은 잘 되는 것 같은데..."<br><br><strong>지금부터라도 빨리 마케팅을 시작해서 개선해야 합니다!!!</strong></h4>
-        </div>
-        <div class="item">
-            <h4>"기술 개발과 제품 생산에는 자신이 있는데... 파는 방법을 모르겠다..."<br><br><strong>마케팅 전략이 없는 생산은 재고만 계속 늘릴 뿐입니다!!!</strong></h4>
-        </div>
-        <div class="item">
-            <h4>"마케팅이나 판촉, 홍보?... 내가 직접 할 수 있을 것 같은데..."<br><br><strong>전문가의 도움을 받아 마케팅 효과를 높일 것을 권장합니다!!!</strong></h4>
-        </div>
-        <div class="item">
-            <h4>"곧 수확을 해야 되는데... 어떻게 하면 좋은 가격으로 팔 수 있을까?..."<br><br><strong>전문가와 함께 효과적인 마케팅 전략을 수립하고 전개하세요!!!</strong></h4>
-        </div>
-        </div>
-
-        <!-- Left and right controls -->
-        <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-        </a>
-        <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-        </a>
-    </div>
-    </div>
-
-    <!-- Container (About Section) -->
-    <div id="about" class="container-fluid">
-    <div class="row about-content">
-        <div class="col-sm-8">
-            <h2 style="font-size: 2em; color: grey">Koex Marketing</h2><br>
-            <h4><strong>"우리는 성공을 위한 종합적 마케팅 솔루션을 제공합니다."</strong></h4>
-                 <h4>AI와 데이터를 기반으로 한 전략 수립부터 브랜드 성장, 디지털 광고, 콘텐츠 마케팅까지 고객의 비즈니스 목표에 맞춰 최적의 마케팅 서비스를 실행하여 성과를 극대화합니다. KOEX Marketing과 함께 효과적인 마케팅 전략으로 브랜드 가치를 높이고, 지속적인 성장을 이끌어보세요!</h4><br>
-        </div>
-        <div class="col-sm-4 logo-container">
-            <span class="glyphicon glyphicon-signal logo slideanim"></span>
-        </div>
-    </div>
-    </div>
-
-    <div class="container-fluid">
-    <div class="row about-content">
-        <div class="col-sm-4 logo-container">
-            <span class="glyphicon glyphicon-globe logo slideanim"></span>
-        </div>
-        <div class="col-sm-8">
-        <h2 style="font-size: 2em; color: grey">Our Values</h2><br>
-        <h4><strong>MISSION: "우리는 혁신적인 마케팅 전략으로 귀사의 성장을 이끌기 위해 존재합니다."</strong></h4>
-            <h4>데이터 기반의 분석과 창의적인 전략을 결합하여, 고객사의 브랜드 가치를 극대화하고 고객의 목표를 달성하기 위해 최적의 마케팅 솔루션을 제공하며, 빠르게 변화하는 시장에서도 차별화된 경쟁력을 갖출 수 있도록 돕습니다.</h4><br>
-        <h4><strong>VISION: "우리는 대한민국을 선도하는 종합마케팅 솔루션 기업입니다."</strong></h4>
-            <h4>최신 기술과 트렌드를 반영한 데이터 중심 마케팅, 창의적인 브랜드 전략, 그리고 효과적인 광고 솔루션을 통해 고객들에게 최고의 성과를 제공하는 신뢰받는 파트너가 되는 것을 목표로 합니다.</h4>
-        </div>
-    </div>
-    </div>
-
-    <!-- Container (Services Section) -->
-    <div id="services" class="container-fluid text-center">
-    <div class="social">
-        <a href="#"><i class="fa-brands fa-google"></i></a>
-        <a href="#"><i class="fa-brands fa-youtube"></i></a>
-        <a href="#"><i class="fa-brands fa-instagram"></i></a>
-        <a href="#"><i class="fa-brands fa-facebook"></i></a>
-        <a href="#"><i class="fa-brands fa-linux"></i></a>    
-    </div>
-    <h4 style="color: black"><strong>텍스트 마이닝을 통한 효과적 마케팅</strong></h4><br>
-    
-    <br>
-    <div class="row slideanim">
-        <div class="col-sm-4">
-        <span class="glyphicon glyphicon-export logo-small"></span>
-        <h4><strong>경영 & 마케팅전략 수립</strong></h4>
-        <h4>장.단기 경영 & 마케팅 전략을 수립합니다.</h4><br>
-        </div>
-        <div class="col-sm-4">
-        <span class="glyphicon glyphicon-list logo-small"></span>
-        <h4><strong>블로그 마케팅</strong></h4>
-        <h4>연관 키워드와 상위 블로그를 분석합니다.</h4><br>
-        </div>
-        <div class="col-sm-4">
-        <span class="glyphicon glyphicon-globe logo-small"></span>
-        <h4><strong>웹사이트 구축 & 운영</strong></h4>
-        <h4>각종 웹사이트를 구축하고 운영합니다.</h4>
-        </div>
-    </div>
-    <br><br>
-    <div class="row slideanim">
-        <div class="col-sm-4">
-        <span class="glyphicon glyphicon-screenshot logo-small"></span>
-        <h4><strong>AI & 데이터 분석</strong></h4>
-        <h4>머신러닝, 딥러닝, 텍스트마이닝을 합니다.</h4><br>
-        </div>
-        <div class="col-sm-4">
-        <span class="glyphicon glyphicon-facetime-video logo-small"></span>
-        <h4><strong>동영상 제작</strong></h4>
-        <h4>각종 동영상 제작 서비스를 제공합니다.</h4><br>
-        </div>
-        <div class="col-sm-4">
-        <span class="glyphicon glyphicon-user logo-small"></span>
-        <h4><strong>챗봇 구축 & 운영</strong></h4>
-        <h4>각종 챗봇을 구축하고 운영합니다.</h4>
-        </div>
-    </div><hr><br>
-    <div class="row slideanim">
-    <img src="sns.png" alt="SNS 관련 이미지" class="sns-image" loading="lazy">
-    <div class="item">
-         <h4>"귀사를 위한 모든 마케팅 관리가 가능합니다."</h4>
-    </div>
-    </div>
-    </div>
-    
-    <!-- Container (Pricing Section) -->
-    <div id="pricing" class="container-fluid">
-    <div class="text-center">
-        <h4 style="color: black"><strong>귀사에 딱 맞는 요금제를 선택하세요!</strong></h4><br>
-    </div>
-    <div class="row slideanim">
-        <div class="col-sm-4 col-xs-12">
-            <div class="panel panel-default text-center">
-                <div class="panel-heading">
-                <h1>Premium</h1><hr>
-                <h3>종합적 마케팅 서비스 제공</h3>
+    <!-- 히어로 섹션 -->
+    <section class="blue-section py-16">
+        <div class="container mx-auto px-4 flex flex-wrap items-center">
+            <div class="w-full lg:w-1/2 mb-10 lg:mb-0">
+                <h1 class="text-4xl font-bold mb-6">AI와 데이터로 실현하는<br>마케팅 성과의 혁신</h1>
+                <p class="text-lg mb-8">고객의 성공을 위한 종합적 마케팅 솔루션을 제공합니다.</p>
+                <p class="mb-8">AI와 데이터 분석을 기반으로 한 전략 수립부터 브랜드 성장, 디지털 광고, 콘텐츠 마케팅까지<br>
+                고객의 비즈니스 목표에 맞춰 최적의 마케팅 서비스를 실행하여 성과를 극대화합니다.</p>
+                <div class="flex space-x-4">
+                    <a href="#contact" class="cta-button">무료 상담 신청하기</a>
+                    <a href="#services" class="text-white border border-white px-6 py-3 rounded hover:bg-white hover:text-blue-800 transition-all">서비스 알아보기</a>
                 </div>
-                <div class="panel-body left-align">
-                    <p><strong><i class="fas fa-check"></i>블로그 홈페이지 제작</strong></p>
-                    <p><strong><i class="fas fa-check"></i>매월 30건 포스팅</strong></p>
-                    <p><strong><i class="fas fa-check"></i>매 2,000자 이상 포스팅</strong></p>
-                    <p><strong><i class="fas fa-check"></i>매 포스팅 10장 이상 이미지 삽입</strong></p>
-                    <p><strong><i class="fas fa-check"></i>서로이웃 300명</strong></p><hr>
-
-                    <p><strong><i class="fas fa-check"></i>홈페이지 제작</strong></p>
-                    <p><strong><i class="fas fa-check"></i>홈페이지 호스팅 및 유지보수</strong></p>
-                    <p><strong><i class="fas fa-check"></i>랜딩페이지 제작 및 호스팅</strong></p><hr>
-
-                    <p><strong><i class="fas fa-check"></i>챗봇 구축 및 임베딩</strong></p>
-                    <p><strong><i class="fas fa-check"></i>챗봇 호스팅 서비스 및 유지보수</strong></p><hr>
-
-                    <p><strong><i class="fas fa-check"></i>매주 쇼츠 동영상 제작 배포</strong></p>
-                    <p><strong><i class="fas fa-check"></i>매월 유튜브 동영상 제작 배포</strong></p><hr>
-                    
-                    <p><strong><i class="fas fa-check"></i>머신러닝, 딥러닝 분석</strong></p>
-                    <p><strong><i class="fas fa-check"></i>텍스트 마이닝 자료 제공</strong></p>
-
+            </div>
+            <div class="w-full lg:w-1/2">
+                <div class="bg-white p-2 rounded-lg shadow-lg">
+                    <img src="https://koex.kr/sns.png" alt="마케팅 이미지" class="w-full">
                 </div>
-                <div class="panel-footer">
-                <h3 style="color:#17a2b8">3,000,000원</h3>
-                <h4>매월, VAT 별도</h4>
-                </div>
-            </div>      
+            </div>
         </div>
-           
-        <div class="col-sm-4 col-xs-12">
-            <div class="panel panel-default text-center">
-                <div class="panel-heading">
-                <h1>Standard</h1><hr>
-                <h3>일반적 마케팅 서비스 제공</h3>
-                </div>
-                <div class="panel-body left-align">
-                    <p><strong><i class="fas fa-check"></i>블로그 홈페이지 제작</strong></p>
-                    <p><strong><i class="fas fa-check"></i>매월 20건 포스팅</strong></p>
-                    <p><strong><i class="fas fa-check"></i>매 1,500자 이상 포스팅</strong></p>
-                    <p><strong><i class="fas fa-check"></i>매 포스팅 5장 이상 이미지 삽입</strong></p>
-                    <p><strong><i class="fas fa-check"></i>서로이웃 200명</strong></p><hr>
-    
-                    <p><strong><i class="fas fa-check"></i>홈페이지 제작</strong></p>
-                    <p><strong><i class="fas fa-check"></i>홈페이지 호스팅 및 유지보수</strong></p>
-                    <p class="text-uncheck"><i class="fas fa-check"></i>랜딩페이지 제작 및 호스팅</p><hr>
+    </section>
 
-                    <p><strong><i class="fas fa-check"></i>챗봇 구축 및 임베딩</strong></p>
-                    <p><strong><i class="fas fa-check"></i>챗봇 호스팅 서비스 및 유지보수</strong></p><hr>
-    
-                    <p class="text-uncheck"><i class="fas fa-check"></i>매주 쇼츠 동영상 제작 배포</p>
-                    <p class="text-uncheck"><i class="fas fa-check"></i>매월 유튜브 동영상 제작 배포</p><hr>
+    <!-- 가치 섹션 -->
+    <section id="company" class="py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-2">회사소개</h2>
+            <p class="text-center text-gray-600 mb-4">KOEX Marketing Company의 Mission과 Vision</p>
+            <div class="w-20 h-1 bg-blue-800 mx-auto mb-12"></div>
 
-                    <p class="text-uncheck"><i class="fas fa-check"></i>머신러닝, 딥러닝 분석</p>
-                    <p><strong><i class="fas fa-check"></i>텍스트 마이닝 자료 제공</strong></p>
-
+            <div class="flex flex-wrap -mx-4">
+                <div class="w-full md:w-1/2 px-4 mb-8">
+                    <div class="bg-white p-8 rounded-lg shadow-md h-full">
+                        <h3 class="text-xl font-bold text-blue-800 mb-4">MISSION</h3>
+                        <p class="text-gray-700 font-medium mb-4">"우리는 혁신적인 마케팅 전략으로 귀사의 성장을 이끌기 위해 존재합니다."</p>
+                        <p class="text-gray-600">데이터 분석과 창의적인 전략을 결합하여, 고객사의 브랜드 가치를 극대화하고 고객의 목표를 달성하기 위해 최적의 마케팅 솔루션을 제공하며, 빠르게 변화하는 시장에서도 차별화된 경쟁력을 갖출 수 있도록 돕습니다.</p>
+                    </div>
                 </div>
-                <div class="panel-footer">
-                <h3 style="color:#17a2b8">1,500,000원</h3>
-                <h4>매월, VAT 별도</h4>
+                <div class="w-full md:w-1/2 px-4 mb-8">
+                    <div class="bg-white p-8 rounded-lg shadow-md h-full">
+                        <h3 class="text-xl font-bold text-blue-800 mb-4">VISION</h3>
+                        <p class="text-gray-700 font-medium mb-4">"우리는 고객과 함께하는 종합마케팅 솔루션 기업을 지향합니다."</p>
+                        <p class="text-gray-600">최신 기술과 트렌드를 반영한 데이터 중심 마케팅, 창의적인 브랜드 전략, 그리고 효과적인 광고 솔루션 제공을 통해 고객들에게 최고의 성과를 제공하며 함께 성장하는 신뢰받는 파트너가 되는 것을 목표로 합니다.</p>
+                    </div>
                 </div>
-            </div>      
+            </div>
         </div>
-        
-        <div class="col-sm-4 col-xs-12">
-            <div class="panel panel-default text-center">
-                <div class="panel-heading">
-                <h1>Basic</h1><hr>
-                <h3>블로그 마케팅 서비스 제공</h3>
-                </div>
-                <div class="panel-body left-align">
-                    <p class="text-uncheck"><i class="fas fa-check"></i>블로그 홈페이지 제작</p>
-                    <p><strong><i class="fas fa-check"></i>매월 15건 포스팅</strong></p>
-                    <p><strong><i class="fas fa-check"></i>매 1,000자 이상 포스팅</strong></p>
-                    <p><strong><i class="fas fa-check"></i>매 포스팅 3장 이상 이미지 삽입</strong></p>
-                    <p><strong><i class="fas fa-check"></i>서로이웃 100명</strong></p><hr>
-    
-                    <p class="text-uncheck"><i class="fas fa-check"></i>홈페이지 제작</p>
-                    <p class="text-uncheck"><i class="fas fa-check"></i>홈페이지 호스팅 및 유지보수</p>
-                    <p class="text-uncheck"><i class="fas fa-check"></i>랜딩페이지 제작 및 호스팅</p><hr>
+    </section>
 
-                    <p class="text-uncheck"><i class="fas fa-check"></i>챗봇 구축 및 임베딩</p>
-                    <p class="text-uncheck"><i class="fas fa-check"></i>챗봇 호스팅 서비스 및 유지보수</p><hr>
-    
-                    <p class="text-uncheck"><i class="fas fa-check"></i>매주 쇼츠 동영상 제작 배포</p>
-                    <p class="text-uncheck"><i class="fas fa-check"></i>매월 유튜브 동영상 제작 배포</p><hr>
+    <!-- 서비스 소개 섹션 -->
+    <section id="services" class="py-16 bg-gray-100">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-2">제공 서비스</h2>
+            <p class="text-center text-gray-600 mb-4">AI와 데이터 기반의 종합 마케팅 솔루션</p>
+            <div class="w-20 h-1 bg-blue-800 mx-auto mb-12"></div>
 
-                    <p class="text-uncheck"><i class="fas fa-check"></i>머신러닝, 딥러닝 분석</p>
-                    <p><strong><i class="fas fa-check"></i>텍스트 마이닝 자료 제공</strong></p>
-                      
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- 서비스 4 -->
+                <div class="service-card bg-white p-6">
+                    <div class="service-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">AI & 데이터 분석</h3>
+                    <p class="text-gray-600 mb-4">머신러닝, 딥러닝, 텍스트마이닝을 합니다. 빅데이터 분석을 통해 고객 행동을 예측하고 최적의 마케팅 의사결정을 지원합니다.</p>
+                    <a href="#" class="text-blue-800 font-medium hover:underline flex items-center">
+                        더 알아보기
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </a>
                 </div>
-                <div class="panel-footer">
-                <h3 style="color:#17a2b8">600,000원</h3>
-                <h4>매월, VAT 별도</h4>
+
+                <!-- 서비스 1 -->
+                <div class="service-card bg-white p-6">
+                    <div class="service-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">경영 & 마케팅전략 수립</h3>
+                    <p class="text-gray-600 mb-4">장.단기 경영 & 마케팅 전략을 수립합니다. 데이터 기반의 분석과 시장 트렌드를 반영한 맞춤형 전략을 제공합니다.</p>
+                    <a href="#" class="text-blue-800 font-medium hover:underline flex items-center">
+                        더 알아보기
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </a>
                 </div>
-            </div>      
-        </div> 
-            
-    </div>
-    </div>
-    <div class="row slideanim">
-        <div class="left-align"><br>
-            <h2>사무실 위치</h2>
-            <p>서울 영등포구 국제금융로6길 33</p>
-            <iframe src="https://maps.google.com/maps?q=서울 영등포구 국제금융로6길 33&output=embed">
-            </iframe>
+
+                <!-- 서비스 2 -->
+                <div class="service-card bg-white p-6">
+                    <div class="service-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">블로그 마케팅</h3>
+                    <p class="text-gray-600 mb-4">연관 키워드와 상위 블로그를 분석합니다. 최적화된 콘텐츠 전략으로 검색 엔진 상위 노출과 타겟 고객 유입을 돕습니다.</p>
+                    <a href="#" class="text-blue-800 font-medium hover:underline flex items-center">
+                        더 알아보기
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- 서비스 3 -->
+                <div class="service-card bg-white p-6">
+                    <div class="service-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">웹사이트 구축 & 운영</h3>
+                    <p class="text-gray-600 mb-4">웹사이트를 구축하고 운영합니다. UI, UX를 최우선으로 고려한 반응형 웹디자인과 효율적인 컨텐츠 관리시스템을 제공합니다.</p>
+                    <a href="#" class="text-blue-800 font-medium hover:underline flex items-center">
+                        더 알아보기
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- 서비스 5 -->
+                <div class="service-card bg-white p-6">
+                    <div class="service-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">동영상 제작</h3>
+                    <p class="text-gray-600 mb-4">각종 동영상 제작 서비스를 제공합니다. 브랜드 스토리텔링부터 제품 소개, 교육 컨텐츠까지 다양한 목적에 맞는 영상을 제작합니다.</p>
+                    <a href="#" class="text-blue-800 font-medium hover:underline flex items-center">
+                        더 알아보기
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- 서비스 6 -->
+                <div class="service-card bg-white p-6">
+                    <div class="service-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">챗봇 구축 & 운영</h3>
+                    <p class="text-gray-600 mb-4">각종 챗봇을 구축하고 운영합니다. AI 기반의 지능형 챗봇으로 고객 응대 자동화 및 사용자 경험 향상을 실현합니다.</p>
+                    <a href="#" class="text-blue-800 font-medium hover:underline flex items-center">
+                        더 알아보기
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
         </div>
-        <br>
-    </div>
+    </section>
 
-    <footer class="container-fluid text-center">
-    <a href="#myPage" title="To Top">
-        <span class="glyphicon glyphicon-chevron-up"></span>
-    </a>
-    <p>© 2024 Koex Marketing. All rights reserved.</p>
-    <p>코엑스마케팅(주)대표이사<span class="glyphicon glyphicon-phone"></span>+82 10-3366-9010</p>
+    <!-- 텍스트 마이닝 섹션 -->
+    <section class="blue-section py-16">
+        <div class="container mx-auto px-4 flex flex-wrap items-center">
+            <div class="w-full lg:w-1/2 mb-10 lg:mb-0">
+                <h2 class="text-3xl font-bold mb-6">텍스트 마이닝을 통한<br>효과적 마케팅</h2>
+                <p class="mb-6">KOEX Marketing은 방대한 데이터에서 의미 있는 인사이트를 발굴하여 마케팅 전략에 활용합니다. <br>AI 기술을 통해 소비자의 행동 패턴을 분석하고 예측함으로써 효과적인 마케팅 의사결정을 지원합니다.</p>
+                <ul class="space-y-3">
+                    <li class="flex items-start">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                        소비자 감성 분석 및 니즈 파악
+                    </li>
+                    <li class="flex items-start">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                        트렌드 분석을 통한 선제적 마케팅 기회 발굴
+                    </li>
+                    <li class="flex items-start">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                        경쟁사 분석 및 차별화 전략 수립
+                    </li>
+                    <li class="flex items-start">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                        데이터 기반 콘텐츠 전략 수립 및 최적화
+                    </li>
+                </ul>
+                <a href="#contact" class="inline-block mt-8 bg-white text-blue-800 px-6 py-3 rounded font-medium hover:bg-gray-100 transition-all">데이터 분석 상담 신청</a>
+            </div>
+            <div class="w-full lg:w-1/2">
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-bold text-blue-800 mb-4 flex justify-between items-center">
+                        <span>데이터 분석 결과</span>
+                        <span class="text-sm font-normal text-gray-500">2023년 Q3~Q4</span>
+                    </h3>
+
+                    <div class="mb-6">
+                        <div class="flex justify-between mb-1">
+                            <span class="text-gray-700">브랜드 인지도</span>
+                            <span class="text-blue-800 font-medium">78%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-value" style="width: 78%"></div>
+                        </div>
+                    </div>
+
+                    <div class="mb-6">
+                        <div class="flex justify-between mb-1">
+                            <span class="text-gray-700">고객 유지도</span>
+                            <span class="text-blue-800 font-medium">64%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-value" style="width: 64%"></div>
+                        </div>
+                    </div>
+
+                    <div class="mb-8">
+                        <div class="flex justify-between mb-1">
+                            <span class="text-gray-700">전환율 향상</span>
+                            <span class="text-blue-800 font-medium">42%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-value" style="width: 42%"></div>
+                        </div>
+                    </div>
+
+                    <div class="bg-blue-50 p-4 rounded-lg">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-xl font-bold text-blue-800">215%</span>
+                        </div>
+                        <p class="text-gray-600">마케팅 ROI 향상</p>
+                    </div>
+
+                    <div class="mt-6">
+                        <canvas id="marketingChart" width="400" height="200"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 성공 사례 섹션 -->
+    <section id="portfolio" class="py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-2">성공 사례</h2>
+            <p class="text-center text-gray-600 mb-4">KOEX Marketing과 함께한 고객사의 성공 스토리</p>
+            <div class="w-20 h-1 bg-blue-800 mx-auto mb-12"></div>
+
+            <!-- 탭 메뉴 -->
+            <div class="flex justify-center mb-8 flex-wrap">
+                <button class="tab-button active mx-1 mb-2" onclick="changeTab('tab1')">이커머스</button>
+                <button class="tab-button mx-1 mb-2" onclick="changeTab('tab2')">B2B 서비스</button>
+                <button class="tab-button mx-1 mb-2" onclick="changeTab('tab3')">식품 브랜드</button>
+                <button class="tab-button mx-1 mb-2" onclick="changeTab('tab4')">여행 플랫폼</button>
+            </div>
+
+            <!-- 탭 콘텐츠 -->
+            <div class="tab-content active" id="tab1">
+                <div class="case-card bg-white overflow-hidden">
+                    <div class="flex flex-wrap">
+                        <div class="w-full lg:w-1/2 p-8">
+                            <span class="inline-block bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium mb-4">이커머스</span>
+                            <h3 class="text-2xl font-bold mb-4">패션 이커머스 '스타일OO' 매출 300% 성장</h3>
+                            <p class="text-gray-600 mb-6">3년차 패션 이커머스 기업 스타일OO는 성장 정체기에 접어들어 새로운 돌파구가 필요했습니다. KOEX의 데이터 기반 마케팅 솔루션을 통해 고객 세그먼트 재정립과 타겟팅 전략 개선으로 6개월 만에 매출 300% 성장을 달성했습니다.</p>
+
+                            <div class="mb-6">
+                                <h4 class="font-bold mb-3">적용 솔루션</h4>
+                                <div class="flex flex-wrap">
+                                    <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm mr-2 mb-2">고객 세그먼트 분석</span>
+                                    <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm mr-2 mb-2">AI 기반 추천 시스템</span>
+                                    <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm mr-2 mb-2">타겟팅 마케팅 전략</span>
+                                    <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm mr-2 mb-2">인플루언서 마케팅</span>
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-4 mb-6">
+                                <div class="success-metric bg-blue-50">
+                                    <h5 class="text-blue-800 font-bold text-lg">300%</h5>
+                                    <p class="text-gray-600">매출 증가</p>
+                                </div>
+                                <div class="success-metric bg-blue-50">
+                                    <h5 class="text-blue-800 font-bold text-lg">250%</h5>
+                                    <p class="text-gray-600">신규 고객 유입</p>
+                                </div>
+                                <div class="success-metric bg-blue-50">
+                                    <h5 class="text-blue-800 font-bold text-lg">45%</h5>
+                                    <p class="text-gray-600">객단가 증가</p>
+                                </div>
+                                <div class="success-metric bg-blue-50">
+                                    <h5 class="text-blue-800 font-bold text-lg">62%</h5>
+                                    <p class="text-gray-600">재구매율</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-full lg:w-1/2 p-8 bg-gray-50 flex flex-col justify-between">
+                            <div class="mb-6">
+                                <h4 class="font-bold mb-4">성과 그래프</h4>
+                                <canvas id="ecommerceChart" width="400" height="200"></canvas>
+                            </div>
+
+                            <div>
+                                <h4 class="font-bold mb-4">고객 후기</h4>
+                                <blockquote class="italic text-gray-600 border-l-4 border-blue-500 pl-4">
+                                    "KOEX와 함께한 6개월은 저희 비즈니스의 게임 체인저였습니다. 데이터를 기반으로 한 마케팅 전략이 정말 효과적이었고, 그 결과는 숫자로 증명되었습니다. 특히 고객 세그먼트 분석과 AI 기반 추천 시스템은 매출 증대에 핵심적인 역할을 했습니다."
+                                </blockquote>
+                                <p class="mt-3 text-right text-gray-700 font-medium">김OO - 스타일OO 마케팅 디렉터</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="tab2">
+                <div class="case-card bg-white overflow-hidden">
+                    <div class="flex flex-wrap">
+                        <div class="w-full lg:w-1/2 p-8">
+                            <span class="inline-block bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium mb-4">B2B 서비스</span>
+                            <h3 class="text-2xl font-bold mb-4">B2B SaaS 기업 '비즈OO' 리드 전환율 185% 향상</h3>
+                            <p class="text-gray-600 mb-6">기업용 협업 툴을 제공하는 비즈OO는 마케팅 비용 대비 낮은 전환율로 어려움을 겪고 있었습니다. KOEX의 데이터 기반 콘텐츠 전략과 타겟팅 최적화를 통해 리드 전환율 185% 향상과 고객 획득 비용 40% 절감을 달성했습니다.</p>
+
+                            <div class="mb-6">
+                                <h4 class="font-bold mb-3">적용 솔루션</h4>
+                                <div class="flex flex-wrap">
+                                    <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm mr-2 mb-2">콘텐츠 마케팅 전략</span>
+                                    <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm mr-2 mb-2">ABM(Account-Based Marketing)</span>
+                                    <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm mr-2 mb-2">SEO 최적화</span>
+                                    <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm mr-2 mb-2">자동화 마케팅</span>
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-4 mb-6">
+                                <div class="success-metric bg-blue-50">
+                                    <h5 class="text-blue-800 font-bold text-lg">185%</h5>
+                                    <p class="text-gray-600">리드 전환율 향상</p>
+                                </div>
+                                <div class="success-metric bg-blue-50">
+                                    <h5 class="text-blue-800 font-bold text-lg">40%</h5>
+                                    <p class="text-gray-600">고객 획득 비용 절감</p>
+                                </div>
+                                <div class="success-metric bg-blue-50">
+                                    <h5 class="text-blue-800 font-bold text-lg">210%</h5>
+                                    <p class="text-gray-600">웹사이트 트래픽 증가</p>
+                                </div>
+                                <div class="success-metric bg-blue-50">
+                                    <h5 class="text-blue-800 font-bold text-lg">75%</h5>
+                                    <p class="text-gray-600">리드 품질 향상</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-full lg:w-1/2 p-8 bg-gray-50 flex flex-col justify-between">
+                            <div class="mb-6">
+                                <h4 class="font-bold mb-4">성과 그래프</h4>
+                                <canvas id="b2bChart" width="400" height="200"></canvas>
+                            </div>
+
+                            <div>
+                                <h4 class="font-bold mb-4">고객 후기</h4>
+                                <blockquote class="italic text-gray-600 border-l-4 border-blue-500 pl-4">
+                                    "KOEX의 데이터 기반 마케팅 접근법은 저희가 정확한 타겟에게 적절한 메시지를 전달할 수 있도록 도와주었습니다. 마케팅 비용은 줄었지만 전환율과 ROI는 크게 향상되었습니다. 특히 ABM 전략과 콘텐츠 마케팅의 시너지가 놀라웠습니다."
+                                </blockquote>
+                                <p class="mt-3 text-right text-gray-700 font-medium">박OO - 비즈OO CMO</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="tab3">
+                <div class="case-card bg-white overflow-hidden">
+                    <div class="flex flex-wrap">
+                        <div class="w-full lg:w-1/2 p-8">
+                            <span class="inline-block bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium mb-4">식품 브랜드</span>
+                            <h3 class="text-2xl font-bold mb-4">건강 간식 브랜드 'OO바이트' 브랜드 인지도 450% 상승</h3>
+                            <p class="text-gray-600 mb-6">새롭게 런칭한 건강 간식 브랜드 OO바이트는 경쟁이 치열한 시장에서 인지도를 높이는 것이 가장 큰 과제였습니다. KOEX의 통합 디지털 마케팅 전략을 통해 브랜드 인지도 450% 상승과 시장 점유율 15% 달성에 성공했습니다.</p>
+
+                            <div class="mb-6">
+                                <h4 class="font-bold mb-3">적용 솔루션</h4>
+                                <div class="flex flex-wrap">
+                                    <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm mr-2 mb-2">소셜미디어 마케팅</span>
+                                    <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm mr-2 mb-2">인플루언서 협업</span>
+                                    <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm mr-2 mb-2">바이럴 마케팅</span>
+                                    <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm mr-2 mb-2">브랜드 스토리텔링</span>
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-4 mb-6">
+                                <div class="success-metric bg-blue-50">
+                                    <h5 class="text-blue-800 font-bold text-lg">450%</h5>
+                                    <p class="text-gray-600">브랜드 인지도 상승</p>
+                                </div>
+                                <div class="success-metric bg-blue-50">
+                                    <h5 class="text-blue-800 font-bold text-lg">15%</h5>
+                                    <p class="text-gray-600">시장 점유율 달성</p>
+                                </div>
+                                <div class="success-metric bg-blue-50">
+                                    <h5 class="text-blue-800 font-bold text-lg">380%</h5>
+                                    <p class="text-gray-600">소셜미디어 팔로워 증가</p>
+                                </div>
+                                <div class="success-metric bg-blue-50">
+                                    <h5 class="text-blue-800 font-bold text-lg">280%</h5>
+                                    <p class="text-gray-600">온라인 판매 증가</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-full lg:w-1/2 p-8 bg-gray-50 flex flex-col justify-between">
+                            <div class="mb-6">
+                                <h4 class="font-bold mb-4">성과 그래프</h4>
+                                <canvas id="foodBrandChart" width="400" height="200"></canvas>
+                            </div>
+
+                            <div>
+                                <h4 class="font-bold mb-4">고객 후기</h4>
+                                <blockquote class="italic text-gray-600 border-l-4 border-blue-500 pl-4">
+                                    "신생 브랜드로서 시장에서 인지도를 쌓는 것이 큰 도전이었습니다. KOEX의 전략적인 소셜미디어 마케팅과 인플루언서 협업을 통해 타겟 고객들에게 효과적으로 도달할 수 있었고, 예상보다 훨씬 빠르게 시장에 안착할 수 있었습니다."
+                                </blockquote>
+                                <p class="mt-3 text-right text-gray-700 font-medium">이OO - OO바이트 창업자</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content" id="tab4">
+                <div class="case-card bg-white overflow-hidden">
+                    <div class="flex flex-wrap">
+                        <div class="w-full lg:w-1/2 p-8">
+                            <span class="inline-block bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-medium mb-4">여행 플랫폼</span>
+                            <h3 class="text-2xl font-bold mb-4">여행 플랫폼 '트립OOO' 앱 다운로드 230% 증가</h3>
+                            <p class="text-gray-600 mb-6">국내 여행 스타트업 트립OOO는 사용자 획득과 앱 다운로드 수 증가에 어려움을 겪고 있었습니다. KOEX의 통합 디지털 마케팅과 데이터 분석을 통해 앱 다운로드 230% 증가와 액티브 유저 195% 상승을 달성했습니다.</p>
+
+                            <div class="mb-6">
+                                <h4 class="font-bold mb-3">적용 솔루션</h4>
+                                <div class="flex flex-wrap">
+                                    <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm mr-2 mb-2">앱 마케팅 전략</span>
+                                    <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm mr-2 mb-2">사용자 경험 최적화</span>
+                                    <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm mr-2 mb-2">퍼포먼스 마케팅</span>
+                                    <span class="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm mr-2 mb-2">리타겟팅 캠페인</span>
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-2 gap-4 mb-6">
+                                <div class="success-metric bg-blue-50">
+                                    <h5 class="text-blue-800 font-bold text-lg">230%</h5>
+                                    <p class="text-gray-600">앱 다운로드 증가</p>
+                                </div>
+                                <div class="success-metric bg-blue-50">
+                                    <h5 class="text-blue-800 font-bold text-lg">195%</h5>
+                                    <p class="text-gray-600">액티브 유저 증가</p>
+                                </div>
+                                <div class="success-metric bg-blue-50">
+                                    <h5 class="text-blue-800 font-bold text-lg">45%</h5>
+                                    <p class="text-gray-600">사용자 유지율 향상</p>
+                                </div>
+                                <div class="success-metric bg-blue-50">
+                                    <h5 class="text-blue-800 font-bold text-lg">320%</h5>
+                                    <p class="text-gray-600">예약 전환율 증가</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-full lg:w-1/2 p-8 bg-gray-50 flex flex-col justify-between">
+                            <div class="mb-6">
+                                <h4 class="font-bold mb-4">성과 그래프</h4>
+                                <canvas id="travelChart" width="400" height="200"></canvas>
+                            </div>
+
+                            <div>
+                                <h4 class="font-bold mb-4">고객 후기</h4>
+                                <blockquote class="italic text-gray-600 border-l-4 border-blue-500 pl-4">
+                                    "KOEX의 데이터 기반 접근 방식은 저희 앱이 어떤 채널과 메시지가 가장 효과적인지 정확히 파악하는 데 큰 도움이 되었습니다. 사용자 경험 최적화와 타겟팅 전략 개선으로 마케팅 효율성이 크게 향상되었고, 결과적으로 앱 다운로드와 사용자 참여도가 크게 증가했습니다."
+                                </blockquote>
+                                <p class="mt-3 text-right text-gray-700 font-medium">정OO - 트립OOO 마케팅 책임자</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FAQ 섹션 -->
+    <section id="faq" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-3">FAQ</h2>
+            <p class="text-center text-gray-600 mb-4">고객들이 자주 묻는 질문을 통해 궁금증을 해결해 드립니다.</p>
+            <div class="w-20 h-1 bg-blue-800 mx-auto mb-12"></div>
+            <div class="max-w-3xl mx-auto">
+                <div class="mb-6 border-b border-gray-200 pb-6">
+                    <button class="w-full flex justify-between items-center text-left" onclick="toggleFaq(this)">
+                        <h3 class="text-lg font-medium">KOEX 마케팅 서비스는 어떤 기업에게 적합한가요?</h3>
+                        <i class="fas fa-chevron-down text-blue-800"></i>
+                    </button>
+                    <div class="faq-content mt-4 hidden">
+                        <p>데이터와 AI를 활용한 마케팅 전략을 원하는 모든 기업에 적합합니다. 특히 디지털 전환이 필요한 기업, 성장 정체기를 겪고 있는 스타트업, 마케팅 효율성을 높이고자 하는 기업, 새로운 시장에 진출하려는 기업 등에 최적화된 솔루션을 제공합니다.</p>
+                    </div>
+                </div>
+
+                <div class="mb-6 border-b border-gray-200 pb-6">
+                    <button class="w-full flex justify-between items-center text-left" onclick="toggleFaq(this)">
+                        <h3 class="text-lg font-medium">마케팅 프로젝트의 일반적인 진행 기간은 얼마나 되나요?</h3>
+                        <i class="fas fa-chevron-down text-blue-800"></i>
+                    </button>
+                    <div class="faq-content mt-4 hidden">
+                        <p>프로젝트의 규모와 복잡성에 따라 다르지만, 일반적인 마케팅 전략 수립 및 실행은 3~6개월이 소요됩니다. 긴급한 캠페인의 경우 4~6주 내에도 빠른 실행이 가능하며, 장기적인 브랜드 구축 프로젝트는 6~12개월 이상 진행됩니다. 정확한 일정은 초기 컨설팅을 통해 결정됩니다.</p>
+                    </div>
+                </div>
+
+                <div class="mb-6 border-b border-gray-200 pb-6">
+                    <button class="w-full flex justify-between items-center text-left" onclick="toggleFaq(this)">
+                        <h3 class="text-lg font-medium">어떤 데이터를 수집하고 분석하나요?</h3>
+                        <i class="fas fa-chevron-down text-blue-800"></i>
+                    </button>
+                    <div class="faq-content mt-4 hidden">
+                        <p>기업이 보유하고 있는 데이터를 포함하여 웹사이트 트래픽, 사용자 행동, 전환율 등의 디지털 데이터, 고객 프로필 및 구매 내역과 같은 CRM 데이터, 소셜 미디어 데이터, 시장 및 경쟁사 데이터, 검색 트렌드 데이터 등을 수집하고 분석합니다.</p>
+                    </div>
+                </div>
+
+                <div class="mb-6 border-b border-gray-200 pb-6">
+                    <button class="w-full flex justify-between items-center text-left" onclick="toggleFaq(this)">
+                        <h3 class="text-lg font-medium">서비스 비용은 어떻게 책정되나요?</h3>
+                        <i class="fas fa-chevron-down text-blue-800"></i>
+                    </button>
+                    <div class="faq-content mt-4 hidden">
+                        <p>마케팅 프로젝트의 규모, 복잡성, 기간에 따라 다르게 책정됩니다. KOEX는 컨설팅 비용을 포함하여 고정 비용 모델, 성과 기반 모델, 월 구독 모델 등 서비스 비용 책정과 관련된 다양한 옵션을 제공합니다. 무료 상담을 통해 자세한 금액을 알아보세요.</p>
+                    </div>
+                </div>
+
+                <div class="mb-6">
+                    <button class="w-full flex justify-between items-center text-left" onclick="toggleFaq(this)">
+                        <h3 class="text-lg font-medium">성과는 어떻게 측정하나요?</h3>
+                        <i class="fas fa-chevron-down text-blue-800"></i>
+                    </button>
+                    <div class="faq-content mt-4 hidden">
+                        <p>투자수익률(ROI), 고객획득비용(CAC), 전환율, 고객생애가치(LTV), 웹사이트 트래픽, 참여율 등 다양한 KPI를 통해 성과를 측정합니다. 프로젝트 시작 전 고객과 함께 KPI를 설정하고, 정기적인 모니터링을 통해 투명하게 결과를 공유합니다.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 문의하기 섹션 -->
+    <section id="contact" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-3">문의하기</h2>
+            <p class="text-center text-gray-600 mb-4">KOEX Marketing과 함께 성장하는 첫 걸음을 시작해 보세요!</p>
+            <div class="w-20 h-1 bg-blue-800 mx-auto mb-12"></div>
+            <div class="md:flex md:space-x-8">
+                <div class="md:w-1/2 mb-8 md:mb-0">
+                    <div class="bg-white p-6 rounded-lg shadow-sm contact-form">
+                        <h3 class="text-xl font-bold mb-4">상담 신청하기</h3>
+                        <form>
+                            <div class="mb-4">
+                                <label class="block text-gray-700 font-medium mb-2">이름 *</label>
+                                <input type="text" placeholder="이름을 입력하세요">
+                            </div>
+                            <div class="mb-4">
+                                <label class="block text-gray-700 font-medium mb-2">회사명 *</label>
+                                <input type="text" placeholder="회사명을 입력하세요">
+                            </div>
+                            <div class="mb-4">
+                                <label class="block text-gray-700 font-medium mb-2">이메일 *</label>
+                                <input type="email" placeholder="이메일을 입력하세요">
+                            </div>
+                            <div class="mb-4">
+                                <label class="block text-gray-700 font-medium mb-2">연락처 *</label>
+                                <input type="tel" placeholder="연락처를 입력하세요">
+                            </div>
+                            <div class="mb-4">
+                                <label class="block text-gray-700 font-medium mb-2">관심 서비스</label>
+                                <select class="w-full p-3 border border-gray-300 rounded-md bg-white">
+                                    <option>관심 서비스를 선택하세요</option>
+                                    <option>AI & 데이터 분석</option>
+                                    <option>경영 & 마케팅전략 수립</option>
+                                    <option>블로그 마케팅</option>
+                                    <option>웹사이트 구축 & 운영</option>
+                                    <option>동영상 제작</option>
+                                    <option>챗봇 구축 & 운영</option>
+                                </select>
+                            </div>
+                            <br>
+                            <button class="contact-button w-full" type="submit">
+                                상담 신청하기
+                            </button>
+                         </form>
+                    </div>
+                </div>
+
+                <div class="md:w-1/2 flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-xl font-bold mb-4">연락처 정보</h3>
+                        <div class="space-y-4 mb-10">
+                            <div class="flex items-start">
+                                <div class="text-blue-800 mr-4 mt-1">
+                                    <i class="fas fa-map-marker-alt text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold">주소</h4>
+                                    <p class="text-gray-600">서울특별시 강남구 테헤란로 (상세 주소)</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="text-blue-800 mr-4 mt-1">
+                                    <i class="fas fa-phone-alt text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold">전화번호</h4>
+                                    <p class="text-gray-600">+82 10-3366-9010</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="text-blue-800 mr-4 mt-1">
+                                    <i class="fas fa-envelope text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold">이메일</h4>
+                                    <p class="text-gray-600">info@koex.kr</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="text-blue-800 mr-4 mt-1">
+                                    <i class="fas fa-clock text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold">운영시간</h4>
+                                    <p class="text-gray-600">평일 09:00 - 18:00 (주말 및 공휴일 휴무)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 푸터 -->
+    <footer class="bg-gray-800 text-white py-10">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h4 class="text-xl font-bold mb-4">KOEX Marketing</h4>
+                    <p class="text-gray-400 mb-4">AI와 데이터 기반 종합 마케팅 솔루션으로 귀사의 성장을 함께합니다.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="text-xl font-bold mb-4">회사소개</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#company" class="text-gray-400 hover:text-white transition">미션 & 비전</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">팀 소개</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">채용정보</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">파트너십</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-xl font-bold mb-4">서비스</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#services" class="text-gray-400 hover:text-white transition">AI & 데이터 분석</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white transition">경영 & 마케팅전략 수립</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white transition">블로그 마케팅</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white transition">웹사이트 구축 & 운영</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white transition">동영상 제작</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-white transition">챗봇 구축 & 운영</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-xl font-bold mb-4">고객지원</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#faq" class="text-gray-400 hover:text-white transition">자주 묻는 질문</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition">상담 신청</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">개인정보처리방침</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition">이용약관</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-700 pt-8">
+                <p class="text-center text-gray-400">© 2024 KOEX Marketing. All rights reserved.</p>
+            </div>
+        </div>
     </footer>
 
     <script>
-    $(document).ready(function(){
-    // Add smooth scrolling to all links in navbar + footer link
-    $(".navbar a, footer a[href='#myPage']").on('click', function(event) {
-        // Make sure this.hash has a value before overriding default behavior
-        if (this.hash !== "") {
-        // Prevent default anchor click behavior
-        event.preventDefault();
+        // 탭 기능
+        function changeTab(tabId) {
+            // 모든 탭 버튼 비활성화
+            document.querySelectorAll('.tab-button').forEach(button => {
+                button.classList.remove('active');
+            });
 
-        // Store hash
-        var hash = this.hash;
+            // 모든 탭 콘텐츠 숨기기
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
 
-        // Using jQuery's animate() method to add smooth page scroll
-        // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
-        $('html, body').animate({
-            scrollTop: $(hash).offset().top
-        }, 900, function(){
-    
-            // Add hash (#) to URL when done scrolling (default click behavior)
-            window.location.hash = hash;
-        });
-        } // End if
-    });
-    
-    $(window).scroll(function() {
-        $(".slideanim").each(function(){
-        var pos = $(this).offset().top;
+            // 선택한 탭 버튼 활성화
+            document.querySelector(`button[onclick="changeTab('${tabId}')"]`).classList.add('active');
 
-        var winTop = $(window).scrollTop();
-            if (pos < winTop + 600) {
-            $(this).addClass("slide");
+            // 선택한 탭 콘텐츠 표시
+            document.getElementById(tabId).classList.add('active');
+
+            // 활성화된 탭에 맞는 차트 그리기 (필요시)
+            // 예: if (tabId === 'tab1') { drawEcommerceChart(); }
+        }
+
+        // 마케팅 차트
+        const marketingCtx = document.getElementById('marketingChart').getContext('2d');
+        const marketingChart = new Chart(marketingCtx, {
+            type: 'line',
+            data: {
+                labels: ['1M', '2M', '3M', '4M', '5M', '6M'],
+                datasets: [{
+                    label: '마케팅 ROI',
+                    data: [75, 90, 130, 160, 190, 215],
+                    borderColor: '#0a3886', // Use the blue color
+                    backgroundColor: 'rgba(10, 56, 134, 0.1)', // Lighter blue with opacity
+                    tension: 0.4,
+                    fill: true
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        mode: 'index',
+                        intersect: false
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            callback: function(value) {
+                                return value + '%';
+                            }
+                        }
+                    }
+                },
+                interaction: {
+                    mode: 'nearest',
+                    axis: 'x',
+                    intersect: false
+                }
             }
         });
-    });
-    })
+
+        // 이커머스 차트
+        const ecommerceCtx = document.getElementById('ecommerceChart').getContext('2d');
+        const ecommerceChart = new Chart(ecommerceCtx, {
+            type: 'bar',
+            data: {
+                labels: ['1월', '2월', '3월', '4월', '5월', '6월'],
+                datasets: [{
+                    label: '매출 (단위: 백만원)',
+                    data: [45, 60, 100, 160, 220, 300],
+                    backgroundColor: 'rgba(10, 56, 134, 0.7)' // Darker blue with opacity
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                return `매출: ${context.raw}백만원`;
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // B2B 차트
+        const b2bCtx = document.getElementById('b2bChart').getContext('2d');
+        const b2bChart = new Chart(b2bCtx, {
+            type: 'line',
+            data: {
+                labels: ['1월', '2월', '3월', '4월', '5월', '6월'],
+                datasets: [{
+                    label: '리드 전환율',
+                    data: [3.5, 5.2, 8.4, 12.6, 15.8, 18.5],
+                    borderColor: '#0a3886', // Blue color
+                    backgroundColor: 'rgba(10, 56, 134, 0.1)',
+                    tension: 0.4,
+                    fill: true,
+                    yAxisID: 'y'
+                }, {
+                    label: '고객 획득 비용(CAC)',
+                    data: [180, 160, 140, 120, 110, 100],
+                    borderColor: '#60a5fa', // Lighter blue
+                    borderDash: [5, 5],
+                    tension: 0.4,
+                    fill: false,
+                    yAxisID: 'y1'
+                }]
+            },
+            options: {
+                responsive: true,
+                interaction: {
+                    mode: 'index',
+                    intersect: false
+                },
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                if (context.dataset.label === '리드 전환율') {
+                                    return `${context.dataset.label}: ${context.raw}%`;
+                                } else {
+                                    return `${context.dataset.label}: ${context.raw}만원`;
+                                }
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        type: 'linear',
+                        display: true,
+                        position: 'left',
+                        title: {
+                            display: true,
+                            text: '전환율 (%)'
+                        }
+                    },
+                    y1: {
+                        type: 'linear',
+                        display: true,
+                        position: 'right',
+                        title: {
+                            display: true,
+                            text: 'CAC (만원)'
+                        },
+                        grid: {
+                            drawOnChartArea: false
+                        }
+                    }
+                }
+            }
+        });
+
+        // 식품 브랜드 차트
+        const foodBrandCtx = document.getElementById('foodBrandChart').getContext('2d');
+        const foodBrandChart = new Chart(foodBrandCtx, {
+            type: 'radar',
+            data: {
+                labels: ['브랜드 인지도', '소셜미디어 참여', '온라인 판매', '오프라인 판매', '고객 충성도'],
+                datasets: [{
+                    label: '마케팅 이전',
+                    data: [20, 15, 25, 30, 40],
+                    backgroundColor: 'rgba(156, 163, 175, 0.2)', // Gray
+                    borderColor: 'rgba(156, 163, 175, 1)',
+                    pointBackgroundColor: 'rgba(156, 163, 175, 1)'
+                }, {
+                    label: '마케팅 이후',
+                    data: [90, 85, 70, 65, 80],
+                    backgroundColor: 'rgba(10, 56, 134, 0.2)', // Blue
+                    borderColor: 'rgba(10, 56, 134, 1)',
+                    pointBackgroundColor: 'rgba(10, 56, 134, 1)'
+                }]
+            },
+            options: {
+                scales: {
+                    r: {
+                        angleLines: {
+                            display: true
+                        },
+                        suggestedMin: 0,
+                        suggestedMax: 100,
+                         pointLabels: { // Improve readability
+                            font: {
+                                size: 11
+                            }
+                        }
+                    }
+                },
+                 plugins: {
+                    legend: {
+                        position: 'bottom' // Move legend to bottom for radar chart
+                    }
+                }
+            }
+        });
+
+        // 여행 플랫폼 차트
+        const travelCtx = document.getElementById('travelChart').getContext('2d');
+        const travelChart = new Chart(travelCtx, {
+            type: 'bar',
+            data: {
+                labels: ['앱 다운로드', '활성 사용자', '사용자 유지율', '예약 전환율'],
+                datasets: [{
+                    label: '마케팅 이전',
+                    data: [100, 80, 30, 15], // Assuming base 100 for download/users, % for others
+                    backgroundColor: 'rgba(156, 163, 175, 0.7)', // Gray
+                    barPercentage: 0.6, // Adjust bar width
+                    categoryPercentage: 0.7 // Adjust spacing between categories
+                }, {
+                    label: '마케팅 이후',
+                    data: [230, 195, 45, 48], // Actual values/percentages after marketing
+                    backgroundColor: 'rgba(10, 56, 134, 0.7)', // Blue
+                    barPercentage: 0.6,
+                    categoryPercentage: 0.7
+                }]
+            },
+            options: {
+                responsive: true,
+                 indexAxis: 'y', // Horizontal bar chart can be good for comparison
+                plugins: {
+                    legend: {
+                        position: 'top'
+                    },
+                     tooltip: {
+                         callbacks: {
+                            label: function(context) {
+                                let label = context.dataset.label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                if (context.parsed.x !== null) {
+                                    // Add '%' sign for relevant metrics if needed based on data interpretation
+                                     if (context.label === '사용자 유지율' || context.label === '예약 전환율') {
+                                          label += context.parsed.x + '%';
+                                     } else {
+                                         // Assuming '앱 다운로드' and '활성 사용자' are relative indexes or counts
+                                          label += context.parsed.x;
+                                     }
+                                }
+                                return label;
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: { // Changed from y for horizontal chart
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: '성과 지표 (값 또는 %)'
+                        }
+                    }
+                }
+            }
+        });
+
+        // FAQ 토글
+        function toggleFaq(button) {
+            const content = button.nextElementSibling;
+            const icon = button.querySelector('i');
+
+            // Close other open FAQs
+            document.querySelectorAll('.faq-content:not(.hidden)').forEach(openContent => {
+                if (openContent !== content) {
+                    openContent.classList.add('hidden');
+                    const openButton = openContent.previousElementSibling;
+                    const openIcon = openButton.querySelector('i');
+                    openIcon.classList.remove('fa-chevron-up');
+                    openIcon.classList.add('fa-chevron-down');
+                }
+            });
+
+            // Toggle clicked FAQ
+            content.classList.toggle('hidden');
+
+            if (content.classList.contains('hidden')) {
+                icon.classList.remove('fa-chevron-up');
+                icon.classList.add('fa-chevron-down');
+            } else {
+                icon.classList.remove('fa-chevron-down');
+                icon.classList.add('fa-chevron-up');
+            }
+        }
     </script>
 </body>
 </html>
